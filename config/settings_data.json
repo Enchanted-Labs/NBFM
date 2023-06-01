@@ -1,0 +1,42 @@
+{
+  "current": {
+    "sections": {
+      "v1-announcement-bar": {
+        "type": "v1-announcement-bar",
+        "settings": {
+          "text": "17% KORTING OVER DE HELE SITE - CODE: EIWIT17"
+        }
+      },
+      "v1-store-benefits-bar": {
+        "type": "v1-store-benefits-bar",
+        "settings": {
+          "text": "17% KORTING OVER DE HELE SITE - CODE: EIWIT17"
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+          "logo_link": ""
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "kolom_1_title": "Questions?",
+          "kolom_2_title": "Column One",
+          "kolom_3_title": "Column Two",
+          "kolom_1_paragraph": "We’re here to help.",
+          "button_1_text": "DOE DE TEST",
+          "kolom_4_title": "Subscribe",
+          "kolom_4_paragraph": "Join our newsletter to stay up to date on features and releases.",
+          "copyright_notice": "2023 © NBFM B.V. • Development by EcomTraffic ✨.",
+          "button_1_link": "",
+          "button_1_link_text": ""
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
+  }
+}

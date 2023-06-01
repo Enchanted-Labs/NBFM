@@ -1,8 +1,343 @@
 {
-    "sections": {
-      "store-name": {
-        "type": "store-name"
+  "sections": {
+    "7f886539-8645-4f16-bbfb-e814a9cd40b9": {
+      "type": "v1-hero",
+      "settings": {
+        "text_button_1": "DOE DE TEST",
+        "text_button_2": "SHOP BESTSELLERS",
+        "title": "Krijg je figuur terug en zit weer lekker in je vel",
+        "paragraph": "Sluit je aan bij 10.000+ mensen die hun aanbeveling al hebben ontvangen.",
+        "announcement_text": "10.245+ ACTIEVE LEDEN",
+        "link_1_button_1": "",
+        "link_2_button_2": ""
       }
     },
-    "order": ["store-name"]
-  }
+    "8946de9c-bded-4b9e-9c5d-b28c5aad7f4c": {
+      "type": "v1-quiz",
+      "settings": {
+        "tagline": "WAAR BEGIN JE?",
+        "button_text": "DOE DE TEST",
+        "title": "Doe onze op maat quiz",
+        "paragraph": "Wil je ontdekken welke supplementen perfect bij jou passen? We hebben samen met onze diëtiste een quiz ontwikkeld die jouw persoonlijke eigenschappen, levensstijl en doelen onderzoekt. Hierdoor kunnen we jou de ideale combinatie van vitamines, mineralen, kruiden en eiwitten aanbevelen",
+        "link_1": "",
+        "logos_laten_zien": true,
+        "tagline_laten_zien": true
+      }
+    },
+    "0ffb7b38-678d-4107-b6f0-113a364d43a3": {
+      "type": "v1-bestsellers",
+      "blocks": {
+        "8819e681-80f8-437f-a1f9-633571551255": {
+          "type": "bestseller",
+          "settings": {
+            "label": "🏆 MEEST POPULAIR"
+          }
+        },
+        "f09ef0cd-72a6-42f7-b6f8-4dc0bfcbe16b": {
+          "type": "bestseller",
+          "settings": {
+            "label": "🏆 MEEST POPULAIR"
+          }
+        },
+        "fc4a5322-3b72-429b-89c1-fc4d55e562c0": {
+          "type": "bestseller",
+          "settings": {
+            "label": "🏆 MEEST POPULAIR"
+          }
+        }
+      },
+      "block_order": [
+        "8819e681-80f8-437f-a1f9-633571551255",
+        "f09ef0cd-72a6-42f7-b6f8-4dc0bfcbe16b",
+        "fc4a5322-3b72-429b-89c1-fc4d55e562c0"
+      ],
+      "settings": {
+        "button_text": "BEKIJK MEER",
+        "title": "Bestsellers",
+        "paragraph": "Wil je ontdekken welke supplementen perfect bij jou passen?",
+        "button_link": "",
+        "knop_laten_zien": true
+      }
+    },
+    "f3a74170-dcd5-46ac-a9c6-a8fe2c039ef6": {
+      "type": "v1-statistics",
+      "blocks": {
+        "b2ad144c-b39e-4492-94f7-389620a7ba46": {
+          "type": "statistic",
+          "settings": {
+            "numbers": "10254+",
+            "information": "Merkte dat ze na 3 maanden effect zagen"
+          }
+        },
+        "dbae770e-0603-4a3c-aaf0-4f1ae1d28ee8": {
+          "type": "statistic",
+          "settings": {
+            "numbers": "10254+",
+            "information": "Merkte dat ze na 3 maanden effect zagen"
+          }
+        },
+        "53dfb1f9-9fb2-46c0-ad27-87fffb7f8ca0": {
+          "type": "statistic",
+          "settings": {
+            "numbers": "10254+",
+            "information": "Merkte dat ze na 3 maanden effect zagen"
+          }
+        },
+        "36b305e3-03bb-4dbd-9214-bbda10b5a121": {
+          "type": "statistic",
+          "settings": {
+            "numbers": "10254+",
+            "information": "Merkte dat ze na 3 maanden effect zagen"
+          }
+        }
+      },
+      "block_order": [
+        "b2ad144c-b39e-4492-94f7-389620a7ba46",
+        "dbae770e-0603-4a3c-aaf0-4f1ae1d28ee8",
+        "53dfb1f9-9fb2-46c0-ad27-87fffb7f8ca0",
+        "36b305e3-03bb-4dbd-9214-bbda10b5a121"
+      ],
+      "settings": {
+        "button_text": "SHOP BESTSELLERS",
+        "titel": "Hier iets over de statistieken",
+        "tagline": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+        "statistics_button": "",
+        "subtitel_weergeven": true
+      }
+    },
+    "370272f0-ee2f-4407-8908-dd01ed417cc5": {
+      "type": "v1-collection",
+      "blocks": {
+        "f897fae3-9af2-4b89-a792-84d5f2797391": {
+          "type": "desktop_collection",
+          "settings": {
+            "title": "Afvallen",
+            "button_text": "SHOP BESTSELLERS",
+            "paragraph": "Hier kan een korte beschrijving komen van wat het doel is.",
+            "link": ""
+          }
+        },
+        "a6d69721-b85e-4023-9dd7-5de1da0de7c5": {
+          "type": "desktop_collection",
+          "settings": {
+            "title": "Afvallen",
+            "button_text": "SHOP BESTSELLERS",
+            "paragraph": "Hier kan een korte beschrijving komen van wat het doel is.",
+            "link": ""
+          }
+        },
+        "67212d16-0a0a-43eb-92b5-dd2a30e1d75a": {
+          "type": "desktop_collection",
+          "settings": {
+            "title": "Afvallen",
+            "button_text": "SHOP BESTSELLERS",
+            "paragraph": "Hier kan een korte beschrijving komen van wat het doel is.",
+            "link": ""
+          }
+        },
+        "32f6d639-424f-4521-91b9-a2b4380b454e": {
+          "type": "desktop_collection",
+          "settings": {
+            "title": "Afvallen",
+            "button_text": "SHOP BESTSELLERS",
+            "paragraph": "Hier kan een korte beschrijving komen van wat het doel is.",
+            "link": ""
+          }
+        },
+        "3b5e3d6b-4b9f-463b-ba27-2e81266455bc": {
+          "type": "category_mobile_swipe",
+          "settings": {
+            "title": "Afvallen",
+            "paragraph": "Hier kan een korte beschrijving komen van wat het doel is.",
+            "link": ""
+          }
+        },
+        "5c58e505-b598-4a5d-bbd4-d1c131f93c05": {
+          "type": "category_mobile_swipe",
+          "settings": {
+            "title": "Afvallen",
+            "paragraph": "Hier kan een korte beschrijving komen van wat het doel is.",
+            "link": ""
+          }
+        },
+        "a01d163c-404f-4865-b150-0d4e977759f6": {
+          "type": "category_mobile_swipe",
+          "settings": {
+            "title": "Afvallen",
+            "paragraph": "Hier kan een korte beschrijving komen van wat het doel is.",
+            "link": ""
+          }
+        },
+        "48165cb1-2aac-473b-820c-8c43e62fff8b": {
+          "type": "category_mobile_swipe",
+          "settings": {
+            "title": "Afvallen",
+            "paragraph": "Hier kan een korte beschrijving komen van wat het doel is.",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "f897fae3-9af2-4b89-a792-84d5f2797391",
+        "a6d69721-b85e-4023-9dd7-5de1da0de7c5",
+        "67212d16-0a0a-43eb-92b5-dd2a30e1d75a",
+        "32f6d639-424f-4521-91b9-a2b4380b454e",
+        "3b5e3d6b-4b9f-463b-ba27-2e81266455bc",
+        "5c58e505-b598-4a5d-bbd4-d1c131f93c05",
+        "a01d163c-404f-4865-b150-0d4e977759f6",
+        "48165cb1-2aac-473b-820c-8c43e62fff8b"
+      ],
+      "settings": {
+        "title": "Behaal je doelen met #NBFM.",
+        "paragraph": "Wil je ontdekken welke supplementen perfect bij jou passen? We hebben samen met onze diëtiste een quiz ontwikkeld die"
+      }
+    },
+    "59c53e7e-7aae-4208-bd6a-59b1ff4352eb": {
+      "type": "v1-benefits",
+      "blocks": {
+        "adee01c9-0446-4353-aa5a-71f16a86b72c": {
+          "type": "benefit",
+          "settings": {
+            "title": "⭐️ Veilig in gebruik",
+            "paragraph": "Highlight Unique Selling Propositions with a short summary of the key feature and how it benefits customers."
+          }
+        },
+        "ff7d4739-e696-4527-a54e-ffec76c49df6": {
+          "type": "benefit",
+          "settings": {
+            "title": "⭐️ Veilig in gebruik",
+            "paragraph": "Highlight Unique Selling Propositions with a short summary of the key feature and how it benefits customers."
+          }
+        },
+        "751098bc-c3a2-4bdd-8a1e-27cee6d51a23": {
+          "type": "benefit",
+          "settings": {
+            "title": "⭐️ Veilig in gebruik",
+            "paragraph": "Highlight Unique Selling Propositions with a short summary of the key feature and how it benefits customers."
+          }
+        }
+      },
+      "block_order": [
+        "adee01c9-0446-4353-aa5a-71f16a86b72c",
+        "ff7d4739-e696-4527-a54e-ffec76c49df6",
+        "751098bc-c3a2-4bdd-8a1e-27cee6d51a23"
+      ],
+      "settings": {
+        "button_text": "SHOP DE COLLECTIE",
+        "title": "Dit waren niet alle voordelen van #NBFM.",
+        "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+        "link": ""
+      }
+    },
+    "96227f97-af2a-4dcb-bd49-a25a0c31aab9": {
+      "type": "v1-testimonials",
+      "blocks": {
+        "7826765d-189d-4b57-a069-32484a17a4a7": {
+          "type": "bestseller",
+          "settings": {
+            "verification_status": "Geverifieerd",
+            "naam": "Tineke v. D.",
+            "review": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.\"",
+            "wanneer_geschreven": "4 Dagen Geleden",
+            "geverifieerd_icon": "<svg width=\"17\" height=\"16\" viewbox=\"0 0 17 16\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n                        <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M16.1702 7.06558L15.0909 5.72642C14.921 5.50656 14.8111 5.24672 14.7811 4.9569L14.5912 3.25796C14.5527 2.91872 14.4003 2.60257 14.1588 2.36115C13.9174 2.11973 13.6013 1.96731 13.262 1.92879L11.5631 1.73891C11.2633 1.70893 11.0034 1.57901 10.7836 1.40912L9.44441 0.329794C8.89475 -0.109931 8.11524 -0.109931 7.56558 0.329794L6.22642 1.40912C6.00656 1.57901 5.74672 1.68894 5.4569 1.71893L3.75796 1.90881C3.0584 1.98876 2.50874 2.53841 2.42879 3.23798L2.23891 4.93691C2.20893 5.23673 2.07901 5.49656 1.90912 5.71643L0.829794 7.05559C0.390069 7.60525 0.390069 8.38476 0.829794 8.93442L1.90912 10.2736C2.07901 10.4934 2.18894 10.7533 2.21893 11.0431L2.40881 12.742C2.48876 13.4416 3.03841 13.9913 3.73798 14.0712L5.43691 14.2611C5.73673 14.2911 5.99656 14.421 6.21643 14.5909L7.55559 15.6702C8.10525 16.1099 8.88476 16.1099 9.43442 15.6702L10.7736 14.5909C10.9934 14.421 11.2533 14.3111 11.5431 14.2811L13.242 14.0912C13.9416 14.0112 14.4913 13.4616 14.5712 12.762L14.7611 11.0631C14.7911 10.7633 14.921 10.5034 15.0909 10.2836L16.1702 8.94441C16.6099 8.39475 16.6099 7.61524 16.1702 7.06558ZM7.00593 12.0025L3.50812 8.50468L5.00718 7.00562L7.00593 9.00437L12.0028 4.0075L13.5019 5.55653L7.00593 12.0025Z\" fill=\"currentcolor\"><\/path>\n                      <\/svg>"
+          }
+        },
+        "45706194-cd23-4037-8c59-5322eff02dd8": {
+          "type": "bestseller",
+          "settings": {
+            "verification_status": "Geverifieerd",
+            "naam": "Tineke v. D.",
+            "review": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.\"",
+            "wanneer_geschreven": "4 Dagen Geleden",
+            "geverifieerd_icon": "<svg width=\"17\" height=\"16\" viewbox=\"0 0 17 16\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n                        <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M16.1702 7.06558L15.0909 5.72642C14.921 5.50656 14.8111 5.24672 14.7811 4.9569L14.5912 3.25796C14.5527 2.91872 14.4003 2.60257 14.1588 2.36115C13.9174 2.11973 13.6013 1.96731 13.262 1.92879L11.5631 1.73891C11.2633 1.70893 11.0034 1.57901 10.7836 1.40912L9.44441 0.329794C8.89475 -0.109931 8.11524 -0.109931 7.56558 0.329794L6.22642 1.40912C6.00656 1.57901 5.74672 1.68894 5.4569 1.71893L3.75796 1.90881C3.0584 1.98876 2.50874 2.53841 2.42879 3.23798L2.23891 4.93691C2.20893 5.23673 2.07901 5.49656 1.90912 5.71643L0.829794 7.05559C0.390069 7.60525 0.390069 8.38476 0.829794 8.93442L1.90912 10.2736C2.07901 10.4934 2.18894 10.7533 2.21893 11.0431L2.40881 12.742C2.48876 13.4416 3.03841 13.9913 3.73798 14.0712L5.43691 14.2611C5.73673 14.2911 5.99656 14.421 6.21643 14.5909L7.55559 15.6702C8.10525 16.1099 8.88476 16.1099 9.43442 15.6702L10.7736 14.5909C10.9934 14.421 11.2533 14.3111 11.5431 14.2811L13.242 14.0912C13.9416 14.0112 14.4913 13.4616 14.5712 12.762L14.7611 11.0631C14.7911 10.7633 14.921 10.5034 15.0909 10.2836L16.1702 8.94441C16.6099 8.39475 16.6099 7.61524 16.1702 7.06558ZM7.00593 12.0025L3.50812 8.50468L5.00718 7.00562L7.00593 9.00437L12.0028 4.0075L13.5019 5.55653L7.00593 12.0025Z\" fill=\"currentcolor\"><\/path>\n                      <\/svg>"
+          }
+        },
+        "b3751972-0ad7-4563-b675-219ee96f0fde": {
+          "type": "bestseller",
+          "settings": {
+            "verification_status": "Geverifieerd",
+            "naam": "Tineke v. D.",
+            "review": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.\"",
+            "wanneer_geschreven": "4 Dagen Geleden",
+            "geverifieerd_icon": "<svg width=\"17\" height=\"16\" viewbox=\"0 0 17 16\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n                        <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M16.1702 7.06558L15.0909 5.72642C14.921 5.50656 14.8111 5.24672 14.7811 4.9569L14.5912 3.25796C14.5527 2.91872 14.4003 2.60257 14.1588 2.36115C13.9174 2.11973 13.6013 1.96731 13.262 1.92879L11.5631 1.73891C11.2633 1.70893 11.0034 1.57901 10.7836 1.40912L9.44441 0.329794C8.89475 -0.109931 8.11524 -0.109931 7.56558 0.329794L6.22642 1.40912C6.00656 1.57901 5.74672 1.68894 5.4569 1.71893L3.75796 1.90881C3.0584 1.98876 2.50874 2.53841 2.42879 3.23798L2.23891 4.93691C2.20893 5.23673 2.07901 5.49656 1.90912 5.71643L0.829794 7.05559C0.390069 7.60525 0.390069 8.38476 0.829794 8.93442L1.90912 10.2736C2.07901 10.4934 2.18894 10.7533 2.21893 11.0431L2.40881 12.742C2.48876 13.4416 3.03841 13.9913 3.73798 14.0712L5.43691 14.2611C5.73673 14.2911 5.99656 14.421 6.21643 14.5909L7.55559 15.6702C8.10525 16.1099 8.88476 16.1099 9.43442 15.6702L10.7736 14.5909C10.9934 14.421 11.2533 14.3111 11.5431 14.2811L13.242 14.0912C13.9416 14.0112 14.4913 13.4616 14.5712 12.762L14.7611 11.0631C14.7911 10.7633 14.921 10.5034 15.0909 10.2836L16.1702 8.94441C16.6099 8.39475 16.6099 7.61524 16.1702 7.06558ZM7.00593 12.0025L3.50812 8.50468L5.00718 7.00562L7.00593 9.00437L12.0028 4.0075L13.5019 5.55653L7.00593 12.0025Z\" fill=\"currentcolor\"><\/path>\n                      <\/svg>"
+          }
+        }
+      },
+      "block_order": [
+        "7826765d-189d-4b57-a069-32484a17a4a7",
+        "45706194-cd23-4037-8c59-5322eff02dd8",
+        "b3751972-0ad7-4563-b675-219ee96f0fde"
+      ],
+      "settings": {
+        "title": "Testimonials van klanten",
+        "paragraph": "Sluit je aan bij 10.000+ mensen die hun aanbeveling al hebben ontvangen."
+      }
+    },
+    "df2148ea-5fcb-4c6a-8f89-6e32c7d8a720": {
+      "type": "v1-blogs",
+      "blocks": {
+        "b4e132b2-945c-409e-a2f6-21ed0f343cc7": {
+          "type": "blog",
+          "settings": {
+            "title": "Plan title heading will go here",
+            "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
+            "button_text": "BLOG BEKIJKEN",
+            "link": ""
+          }
+        },
+        "da87a3eb-bec9-445e-b85b-9857457e7dd4": {
+          "type": "blog",
+          "settings": {
+            "title": "Plan title heading will go here",
+            "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
+            "button_text": "BLOG BEKIJKEN",
+            "link": ""
+          }
+        },
+        "b2dd4704-b7d9-4b7a-ba68-b19ae7f76737": {
+          "type": "blog",
+          "settings": {
+            "title": "Plan title heading will go here",
+            "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
+            "button_text": "BLOG BEKIJKEN",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "b4e132b2-945c-409e-a2f6-21ed0f343cc7",
+        "da87a3eb-bec9-445e-b85b-9857457e7dd4",
+        "b2dd4704-b7d9-4b7a-ba68-b19ae7f76737"
+      ],
+      "settings": {
+        "title": "Blogs",
+        "button_text": "BEKIJK MEER",
+        "paragraph": "Wil je ontdekken welke supplementen perfect bij jou passen? We hebben samen met onze diëtiste een quiz ontwikkeld die",
+        "button_link": "",
+        "knop_laten_zien": true
+      }
+    },
+    "cc3fb5ec-3243-412d-835a-ae5efaa5d38d": {
+      "type": "v1-instagram",
+      "settings": {
+        "title": "Volg onze socials",
+        "paragraph": "Sluit je aan bij 10.000+ mensen die hun aanbeveling al hebben ontvangen.",
+        "link_1": "",
+        "link_2": "",
+        "link_3": "",
+        "link_4": ""
+      }
+    }
+  },
+  "order": [
+    "7f886539-8645-4f16-bbfb-e814a9cd40b9",
+    "8946de9c-bded-4b9e-9c5d-b28c5aad7f4c",
+    "0ffb7b38-678d-4107-b6f0-113a364d43a3",
+    "f3a74170-dcd5-46ac-a9c6-a8fe2c039ef6",
+    "370272f0-ee2f-4407-8908-dd01ed417cc5",
+    "59c53e7e-7aae-4208-bd6a-59b1ff4352eb",
+    "96227f97-af2a-4dcb-bd49-a25a0c31aab9",
+    "df2148ea-5fcb-4c6a-8f89-6e32c7d8a720",
+    "cc3fb5ec-3243-412d-835a-ae5efaa5d38d"
+  ]
+}
