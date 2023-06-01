@@ -1,21 +1,52 @@
 <!DOCTYPE html>
-<!-- Last Published: {{ "now" | date: "%Y-%m-%dT%H:%M:%S.%L%z" }} -->
-<html data-wf-page="{{ wfPage }}" data-wf-site="644bb6c395dc926d907df42b" lang="{{ request.locale.iso_code }}" data-money-format="{{ shop.money_format | escape }}"><head>{%- liquid
-    if headerSnippetPath
-        include headerSnippetPath
-    else
-        render "__default-head"
-    endif
--%}
-{{content_for_header}}
-{% if template contains 'customers' %}
-    {{ "shopify_common.js" | shopify_asset_url | script_tag }}
-{% endif %}
+<html data-wf-page="{{ wfPage }}" data-wf-site="644bb6c395dc926d907df42b" lang="{{ request.locale.iso_code }}"
+    data-money-format="{{ shop.money_format | escape }}" lang="{{ request.locale.iso_code }}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="">
+
+    <link rel="canonical" href="{{ canonical_url }}">
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+
+    {%- if settings.favicon != blank -%}
+    <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {%- endif -%}
+
+    {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
+    <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+    {%- endunless -%}
+
+    <title>
+        {{ page_title }}
+        {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+        {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+        {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+    </title>
+
+    {% if page_description %}
+    <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+
+    {% render '__default-head' %}
+
+    {{ content_for_header }}
+
+    {{ 'theme.css' | asset_url | stylesheet_tag }}
+
 </head>
-<body class="{{ bodyClasses }} {{ "template-" | append: request.page_type | handle }}">
-{% if headerSnippetPath %}
-    {{ content_for_layout }}
-{% else %}
-    {% include "backup-layout" %}
-{% endif %}
-</body></html>
+
+<body class="{{ bodyClasses }} {{ " template-" | append: request.page_type | handle }}">
+    {% section 'v1-announcement-bar' %}
+    {% section 'v1-store-benefits-bar' %}
+    {% section 'header' %}
+    <main id="main" class="main" role="main" tabindex="-1">
+        {{ content_for_layout }}
+    </main>
+    {% section 'footer' %}
+    {% render 'scripts' %}
+</body>
+
+</html>
