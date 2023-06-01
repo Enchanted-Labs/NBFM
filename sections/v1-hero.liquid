@@ -1,0 +1,88 @@
+
+    <div class="w-layout-grid header1_component">
+      <div id="w-node-_7a0db349-6ea4-a401-d912-01425b7de8ab-5b7de8a9" class="hero-content">
+        <div class="hero-content">
+          <h1 class="hero-h1">{{ section.settings.title | newline_to_br }}</h1>
+          <p class="hero-p">{{ section.settings.paragraph | newline_to_br }}</p>
+        </div>
+        <div class="hero-content">
+          <div class="hero-buttons">
+            <a href="{{ section.settings.link_1_button_1 }}" target="_blank" class="hero-primary-btn">
+              <div>{{ section.settings.text_button_1 }}</div>
+            </a>
+            <a href="{{ section.settings.link_2_button_2 }}" class="hero-secondairy-btn">
+              <div>{{ section.settings.text_button_2 }}</div>
+            </a>
+          </div>
+          <div class="hero-testimonials-div">{%- if section.settings.announcement_icon == nil -%}<img src="{{ 'vectors-wrapper_4.svg' | asset_url }}" loading="lazy" width="22" height="22" alt="" class="vectors-wrapper-4">{%- else -%}<img src="{{ section.settings.announcement_icon.src | img_url: 'master' }}" loading="lazy" width="22" height="22" alt="{{ section.settings.announcement_icon.alt | escape }}" class="vectors-wrapper-4" srcset="{{ section.settings.announcement_icon | img_url: '1920x' }} 1920w,{{ section.settings.announcement_icon | img_url: '1600x' }} 1600w,{{ section.settings.announcement_icon | img_url: '1366x' }} 1366w,{{ section.settings.announcement_icon | img_url: '1024x' }} 1024w,{{ section.settings.announcement_icon | img_url: '768x' }} 768w,{{ section.settings.announcement_icon | img_url: '640x' }} 640w">{%- endif -%}
+            <div>{{ section.settings.announcement_text | newline_to_br }}</div>
+          </div>
+        </div>
+        <div class="brand-logo-hero"><img src="{{ 'brand-imgs.png' | asset_url }}" loading="lazy" sizes="100vw" srcset="{{ 'brand-imgs-p-500.png' | asset_url }} 500w, {{ 'brand-imgs-p-800.png' | asset_url }} 800w, {{ 'brand-imgs.png' | asset_url }} 908w" alt="" class="image-brands"></div>
+      </div>
+      <div id="w-node-_7a0db349-6ea4-a401-d912-01425b7de8bf-5b7de8a9" class="header1_image-wrapper">{%- if section.settings.image == nil -%}<img src="{{ 'rectangle-4713.png' | asset_url }}" loading="lazy" sizes="(max-width: 479px) 93vw, (max-width: 767px) 86vw, (max-width: 991px) 76vw, (max-width: 1439px) 53vw, 732px" srcset="{{ 'rectangle-4713-p-500.png' | asset_url }} 500w, {{ 'rectangle-4713-p-800.png' | asset_url }} 800w, {{ 'rectangle-4713-p-1080.png' | asset_url }} 1080w, {{ 'rectangle-4713-p-1600.png' | asset_url }} 1600w, {{ 'rectangle-4713-p-2000.png' | asset_url }} 2000w, {{ 'rectangle-4713.png' | asset_url }} 2094w" alt="" class="hero-banner">{%- else -%}<img src="{{ section.settings.image.src | img_url: 'master' }}" loading="lazy" alt="{{ section.settings.image.alt | escape }}" class="hero-banner" srcset="{{ section.settings.image | img_url: '1920x' }} 1920w,{{ section.settings.image | img_url: '1600x' }} 1600w,{{ section.settings.image | img_url: '1366x' }} 1366w,{{ section.settings.image | img_url: '1024x' }} 1024w,{{ section.settings.image | img_url: '768x' }} 768w,{{ section.settings.image | img_url: '640x' }} 640w">{%- endif -%}</div>
+    </div>
+    <div class="wave primairy-color"></div>
+  
+
+<script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","hero-section");</script>
+        
+{% schema %}
+{
+  "name": "V1 - Hero",
+  "tag": "div",
+  "class": "hero-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text_button_1",
+      "label": "Text Button 1",
+      "default": "DOE DE TEST"
+    },
+    {
+      "type": "text",
+      "id": "text_button_2",
+      "label": "Text Button 2",
+      "default": "SHOP BESTSELLERS"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title",
+      "default": "Krijg je figuur terug en zit weer lekker in je vel"
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph",
+      "label": "Paragraph",
+      "default": "Sluit je aan bij 10.000+ mensen die hun aanbeveling al hebben ontvangen."
+    },
+    {
+      "type": "textarea",
+      "id": "announcement_text",
+      "label": "Announcement Text",
+      "default": "10.245+ ACTIEVE LEDEN"
+    },
+    {
+      "type": "image_picker",
+      "id": "announcement_icon",
+      "label": "Announcement Icon"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "url",
+      "id": "link_1_button_1",
+      "label": "Link 1 - Button 1"
+    },
+    {
+      "type": "url",
+      "id": "link_2_button_2",
+      "label": "Link 2 - Button 2"
+    }
+  ]
+}
+{% endschema %}

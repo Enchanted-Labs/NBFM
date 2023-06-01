@@ -1,0 +1,97 @@
+
+    <div class="page-padding">
+      <div class="container-v2">
+        <div class="blog-content-grid">
+          <div id="w-node-_0e67a66b-9452-428b-fc55-db4cd6d1e525-d6d1e521" class="blog-header">
+            <div class="breadcrumb_component blog">
+              <div class="breadcrumb-links-container">
+                <div>
+                  <a href="#" class="breadcrumb-link">{{ 't2268ff' | t }}</a>{{ 'tf3c6f' | t }}<a href="#" class="breadcrumb-link">{{ 't3d4d4f1' | t }}</a>{{ 'tf3c6f' | t }}<a href="#" class="breadcrumb-link">{{ 'tn4084007d' | t }}</a>
+                </div>
+              </div>
+            </div>
+            <div class="blog-header-content">
+              <div class="blog-tagline">{{ 't43d02e25' | t }}</div>
+              <h3 class="blog-h1" data-page-item="title">{{ page.title }}</h3>
+              <div class="blog-publish-date">{{ 'tn1f9288a8' | t }}</div>
+            </div>
+          </div>
+          <div id="w-node-_0e67a66b-9452-428b-fc55-db4cd6d1e538-d6d1e521" class="blog-content-image-wrapper"><img src="{{ 'frame-2922_2.png' | asset_url }}" loading="lazy" sizes="(max-width: 479px) 92vw, (max-width: 767px) 95vw, (max-width: 991px) 92vw, (max-width: 1439px) 59vw, 789.5px" srcset="{{ 'frame-2922_2-p-500.png' | asset_url }} 500w, {{ 'frame-2922_2-p-800.png' | asset_url }} 800w, {{ 'frame-2922_2.png' | asset_url }} 868w" alt="" class="absolute-img no-hover"></div>
+          <div class="blog-newsletter-signup">
+            <h1 class="signup-h1">{{ 'tn692fbf8f' | t }}</h1>
+            <div class="newsletter-signup-form">
+              <div class="singup-fillout-module">
+                <div>{{ 'tn71cb12eb' | t }}</div>
+              </div>
+              <a href="#" class="aanmeldknop w-inline-block">{{ 't7c61c367' | t }}</a>
+            </div>
+          </div>
+          <div id="w-node-_0e67a66b-9452-428b-fc55-db4cd6d1e543-d6d1e521" class="blog-richtext-wrapper">
+            <div class="rich-text-block-2 w-richtext" data-page-item="content">{{ page.content }}</div>
+          </div>
+        </div>
+        <div class="bestselling-section-content">
+          <div class="bestseller-top-content">
+            <div class="bestseller-heading">
+              <div class="bestsellers-title-holder">
+                <h1 class="bestsellers-h1">{{ section.settings.title | newline_to_br }}</h1>
+              </div>
+              <div class="blog-paragraph blog">{{ section.settings.paragraph | newline_to_br }}</div>
+            </div>
+          </div>
+          <div id="blogs-swiper" class="swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
+            <div class="bestsellers-swiper swiper-wrapper">
+              {%- for block in section.blocks -%}{%- if block.type == "bestseller" -%}<div class="swiper-slide blog-swipe" block.shopify_attributes>
+                <div class="blog-swipe-content">
+                  <div class="blog-img-wrapper"><img src="{{ 'frame-2922_2.png' | asset_url }}" loading="lazy" sizes="(max-width: 479px) 92vw, 430px" srcset="{{ 'frame-2922_2-p-500.png' | asset_url }} 500w, {{ 'frame-2922_2-p-800.png' | asset_url }} 800w, {{ 'frame-2922_2.png' | asset_url }} 868w" alt="" class="absolute-img"></div>
+                  <div class="blog-card-title">
+                    <div class="blog-title">{{ 'tn5eb1b4c9' | t }}</div>
+                    <div class="blog-p">{{ 'tn731a7d53' | t }}</div>
+                  </div>
+                  <div class="product-card-btn">{{ 'tn6fbd5737' | t }}</div>
+                </div>
+              </div>{%- endif -%}{%- endfor -%}
+            </div>
+            <div class="swiper-drag-wrapper swiper-dragger-blogs">
+              <div class="swiper-drag drag-blogs"></div>
+            </div>
+            <div class="slider-arrow-container blog">
+              <div id="blogs-prev-arrow" class="slider-arrow"><img src="{{ 'ic20-arrow-right_1.svg' | asset_url }}" loading="lazy" alt="" class="arrow-swipe"></div>
+              <div id="blogs-next-arrow" class="slider-arrow"><img src="{{ 'ic20-arrow-right.svg' | asset_url }}" loading="lazy" alt="" class="arrow-swipe"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wave primairy-color"></div>
+  
+
+<script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","blog-content-section");</script>
+        
+{% schema %}
+{
+  "name": "V1 - Blog Post",
+  "tag": "div",
+  "class": "blog-content-section",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title",
+      "default": "Blogs"
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph",
+      "label": "Paragraph",
+      "default": "Wil je ontdekken welke supplementen perfect bij jou passen? We hebben samen met onze diëtiste een quiz ontwikkeld die"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Bestseller",
+      "type": "bestseller"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,52 @@
+
+    <div class="secondairy-design-section">
+      <div class="content-container">
+        <div class="w-layout-grid product-details-grid reverse">
+          <div id="w-node-_1bd851b6-bb70-a575-9054-be5f50288ac0-50288abc" class="content-title-wrapper">
+            <div class="tagline-p">{{ section.settings.tagline | newline_to_br }}</div>
+            <h2 class="h2-product-section programs">{{ section.settings.title | newline_to_br }}</h2>
+            <p class="product-paragraph opa-80">{{ section.settings.paragraph | newline_to_br }}</p>
+          </div>
+          <div id="w-node-_1bd851b6-bb70-a575-9054-be5f50288ac7-50288abc" class="content-block programs">
+            <div id="w-node-_1bd851b6-bb70-a575-9054-be5f50288ac8-50288abc" class="content-image-block programs">{%- if section.settings.image == nil -%}<img src="{{ 'image_1.png' | asset_url }}" srcset="{{ 'image_1-p-500.png' | asset_url }} 500w, {{ 'image_1.png' | asset_url }} 700w" sizes="(max-width: 479px) 92vw, (max-width: 767px) 84vw, (max-width: 991px) 591px, (max-width: 1279px) 46vw, 591px" alt="" class="content-image">{%- else -%}<img src="{{ section.settings.image.src | img_url: 'master' }}" alt="{{ section.settings.image.alt | escape }}" class="content-image" srcset="{{ section.settings.image | img_url: '1920x' }} 1920w,{{ section.settings.image | img_url: '1600x' }} 1600w,{{ section.settings.image | img_url: '1366x' }} 1366w,{{ section.settings.image | img_url: '1024x' }} 1024w,{{ section.settings.image | img_url: '768x' }} 768w,{{ section.settings.image | img_url: '640x' }} 640w">{%- endif -%}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wave bg-color-programs"></div>
+  
+
+<script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","product-storytelling-section last programs-pink");</script>
+        
+{% schema %}
+{
+  "name": "V1 - Meet Kimberly",
+  "tag": "section",
+  "class": "product-storytelling-section last programs-pink",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "aangenaam"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title",
+      "default": "Maak kennis met Kimberly."
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph",
+      "label": "Paragraph",
+      "default": "NBFM is opgericht door Kimberly Mutzers, werkt samen met haar partner Eddy en vele coaches, trainers en specialisten binnen Newborn Fit Mama. Kimberly is bekend van haar vlogs, blogs en Instagram account, waarin ze dagelijks haar lifestyle laat zien om andere moeders te inspireren."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ]
+}
+{% endschema %}

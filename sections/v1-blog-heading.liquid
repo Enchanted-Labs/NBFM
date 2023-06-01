@@ -1,0 +1,131 @@
+
+    <div class="page-padding">
+      <div class="container-v2">
+        <div class="header-container blog">
+          <div class="breadcrumb_component">
+            <a href="#" class="breadcrumb-link w-inline-block">
+              <div>{{ 't2268ff' | t }}</div>
+            </a>
+            <div class="breadcrumb-divider w-embed"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
+              </svg></div>
+            <a href="#" class="breadcrumb-link is-active w-inline-block">
+              <div>{{ 't3d4d4f1' | t }}</div>
+            </a>
+          </div>
+          <h1 class="page-h1" data-page-item="title">{{ page.title }}</h1>
+          <div class="page-paragraph w-richtext">
+            <p>{{ 't5cb58f10' | t }}</p>
+          </div>
+        </div>
+        <a href="#" class="blog-heading-featured-desktop-tablet w-inline-block">
+          <div id="w-node-d6ff6b30-7f2c-4ee3-371c-b0ad2e55bd59-2e55bd47" class="blog-featured-image-container"><img src="{{ 'frame-17815.png' | asset_url }}" loading="lazy" sizes="(max-width: 767px) 100vw, (max-width: 991px) 93vw, (max-width: 1439px) 46vw, 617px" srcset="{{ 'frame-17815-p-500.png' | asset_url }} 500w, {{ 'frame-17815-p-800.png' | asset_url }} 800w, {{ 'frame-17815-p-1080.png' | asset_url }} 1080w, {{ 'frame-17815.png' | asset_url }} 1190w" alt="" class="absolute-img no-hover"></div>
+          <div id="w-node-d6ff6b30-7f2c-4ee3-371c-b0ad2e55bd5b-2e55bd47" class="featured-block-desktop-content">
+            <div class="inner-featured-blog-container">
+              <div class="blog-tagline">{{ 'tn436ebfa9' | t }}</div>
+              <h1 class="featured-blog-h1">{{ 'tn4084007d' | t }}</h1>
+              <div>{{ 'tn731a7d53' | t }}</div>
+              <div class="featured-blog-info">
+                <div class="featured-blog-author"><img src="{{ 'image.png' | asset_url }}" loading="lazy" alt=""></div>
+                <div class="featured-blog-author-info">
+                  <div class="featured-author-name">{{ 'tn1f04aef3' | t }}</div>
+                  <div class="featured-blog-publish-info">
+                    <div>{{ 'tn65ba5c79' | t }}</div>
+                    <div class="text-block-3">{{ 't2022' | t }}</div>
+                    <div>{{ 'tn3941edd1' | t }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+        <div class="bestselling-section-content blog">
+          <div class="bestseller-top-content blog">
+            <div class="bestseller-heading blog">
+              <div class="bestsellers-title-holder _1e">
+                <h1 class="bestsellers-h1">{{ 't2ed51742' | t }}</h1>
+              </div>
+            </div>
+          </div>
+          <div id="blogs-swiper" class="swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
+            <div class="bestsellers-swiper swiper-wrapper">
+              {%- for block in section.blocks -%}{%- if block.type == "bestseller" -%}<div class="swiper-slide blog-swipe" block.shopify_attributes>
+                <div class="blog-swipe-content">
+                  <div class="blog-img-wrapper"><img src="{{ 'frame-2922_2.png' | asset_url }}" loading="lazy" sizes="(max-width: 767px) 161.0234375px, 100vw" srcset="{{ 'frame-2922_2-p-500.png' | asset_url }} 500w, {{ 'frame-2922_2-p-800.png' | asset_url }} 800w, {{ 'frame-2922_2.png' | asset_url }} 868w" alt="" class="absolute-img no-hover"></div>
+                  <div class="blog-card-title">
+                    <div class="blog-title">{{ 'tn5eb1b4c9' | t }}</div>
+                    <div class="blog-p">{{ 'tn731a7d53' | t }}</div>
+                  </div>
+                  <div class="product-card-btn">{{ 'tn6fbd5737' | t }}</div>
+                </div>
+              </div>{%- endif -%}{%- endfor -%}
+              {%- for block in section.blocks -%}{%- if block.type == "bestseller" -%}<div class="swiper-slide blog-swipe" block.shopify_attributes>
+                <div class="blog-swipe-content">
+                  <div class="blog-img-wrapper"><img src="{{ 'frame-2922_2.png' | asset_url }}" loading="lazy" sizes="(max-width: 767px) 161.0234375px, 100vw" srcset="{{ 'frame-2922_2-p-500.png' | asset_url }} 500w, {{ 'frame-2922_2-p-800.png' | asset_url }} 800w, {{ 'frame-2922_2.png' | asset_url }} 868w" alt="" class="absolute-img no-hover"></div>
+                  <div class="blog-card-title">
+                    <div class="blog-title">{{ 'tn5eb1b4c9' | t }}</div>
+                    <div class="blog-p">{{ 'tn731a7d53' | t }}</div>
+                  </div>
+                  <div class="product-card-btn">{{ 'tn6fbd5737' | t }}</div>
+                </div>
+              </div>{%- endif -%}{%- endfor -%}
+              {%- for block in section.blocks -%}{%- if block.type == "bestseller" -%}<div class="swiper-slide blog-swipe" block.shopify_attributes>
+                <div class="blog-swipe-content">
+                  <div class="blog-img-wrapper"><img src="{{ 'frame-2922_2.png' | asset_url }}" loading="lazy" sizes="(max-width: 767px) 161.0234375px, 100vw" srcset="{{ 'frame-2922_2-p-500.png' | asset_url }} 500w, {{ 'frame-2922_2-p-800.png' | asset_url }} 800w, {{ 'frame-2922_2.png' | asset_url }} 868w" alt="" class="absolute-img no-hover"></div>
+                  <div class="blog-card-title">
+                    <div class="blog-title">{{ 'tn5eb1b4c9' | t }}</div>
+                    <div class="blog-p">{{ 'tn731a7d53' | t }}</div>
+                  </div>
+                  <div class="product-card-btn">{{ 'tn6fbd5737' | t }}</div>
+                </div>
+              </div>{%- endif -%}{%- endfor -%}
+              {%- for block in section.blocks -%}{%- if block.type == "bestseller" -%}<div class="swiper-slide blog-swipe" block.shopify_attributes>
+                <div class="blog-swipe-content">
+                  <div class="blog-img-wrapper"><img src="{{ 'frame-2922_2.png' | asset_url }}" loading="lazy" sizes="(max-width: 767px) 161.0234375px, 100vw" srcset="{{ 'frame-2922_2-p-500.png' | asset_url }} 500w, {{ 'frame-2922_2-p-800.png' | asset_url }} 800w, {{ 'frame-2922_2.png' | asset_url }} 868w" alt="" class="absolute-img no-hover"></div>
+                  <div class="blog-card-title">
+                    <div class="blog-title">{{ 'tn5eb1b4c9' | t }}</div>
+                    <div class="blog-p">{{ 'tn731a7d53' | t }}</div>
+                  </div>
+                  <div class="product-card-btn">{{ 'tn6fbd5737' | t }}</div>
+                </div>
+              </div>{%- endif -%}{%- endfor -%}
+              {%- for block in section.blocks -%}{%- if block.type == "bestseller" -%}<div class="swiper-slide blog-swipe" block.shopify_attributes>
+                <div class="blog-swipe-content">
+                  <div class="blog-img-wrapper"><img src="{{ 'frame-2922_2.png' | asset_url }}" loading="lazy" sizes="(max-width: 767px) 161.0234375px, 100vw" srcset="{{ 'frame-2922_2-p-500.png' | asset_url }} 500w, {{ 'frame-2922_2-p-800.png' | asset_url }} 800w, {{ 'frame-2922_2.png' | asset_url }} 868w" alt="" class="absolute-img no-hover"></div>
+                  <div class="blog-card-title">
+                    <div class="blog-title">{{ 'tn5eb1b4c9' | t }}</div>
+                    <div class="blog-p">{{ 'tn731a7d53' | t }}</div>
+                  </div>
+                  <div class="product-card-btn">{{ 'tn6fbd5737' | t }}</div>
+                </div>
+              </div>{%- endif -%}{%- endfor -%}
+            </div>
+            <div class="swiper-drag-wrapper swiper-dragger-blogs">
+              <div class="swiper-drag drag-blogs"></div>
+            </div>
+            <div class="slider-arrow-container blog">
+              <div id="blogs-prev-arrow" class="slider-arrow"><img src="{{ 'ic20-arrow-right_1.svg' | asset_url }}" loading="lazy" alt="" class="arrow-swipe"></div>
+              <div id="blogs-next-arrow" class="slider-arrow"><img src="{{ 'ic20-arrow-right.svg' | asset_url }}" loading="lazy" alt="" class="arrow-swipe"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+<script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","blog-heading");</script>
+        
+{% schema %}
+{
+  "name": "V1 - Blog Heading",
+  "tag": "div",
+  "class": "blog-heading",
+  "settings": [],
+  "blocks": [
+    {
+      "name": "Bestseller",
+      "type": "bestseller"
+    }
+  ]
+}
+{% endschema %}

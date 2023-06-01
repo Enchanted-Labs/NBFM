@@ -1,0 +1,279 @@
+{%- assign headerSnippetPath = "header-index" -%}{%- assign wfPage = "6475c945c0be9d26f9bbd58f" -%}{%- assign bodyClasses = "" -%}
+  {%- section 'v1-announcement-bar' -%}
+  {%- render 'v1-store-benefits-bar' -%}
+  {%- section 'navbar' -%}
+  {%- section 'v1-product-section' -%}
+  {%- section 'v1-product-info-image-r' -%}
+  {%- section 'v1-product-info-image-l' -%}
+  {%- section 'v1-why-tabs' -%}
+  {%- section 'v1-testimonials' -%}
+  {%- section 'v1-chart' -%}
+  {%- section 'v1-ingredients' -%}
+  {%- section 'v1-benefits' -%}
+  {%- section 'v1-footer-product-section' -%}
+  {%- section 'v1-instagram' -%}
+  {%- section 'footer' -%}
+  <div class="dummy-block-udesly">
+    <div>
+      {%- form "product", product, data-node-type: "commerce-add-to-cart-form", class: "w-commerce-commerceaddtocartform" -%}{%- unless product.has_only_default_variant or product.variants.size == 1 -%}<div data-node-type="add-to-cart-option-list" position-id="d50d18e9-d993-b00d-ef8d-0346bcd3830a">{%- for option in product.options_with_values -%}<fieldset data-node-type="add-to-cart-option" style="{% if product.has_only_default_variant or product.variants.size == 1 %}display: none; {% endif %}"><label data-node-type="add-to-cart-option-label">{{ option.name }}</label><select data-node-type="add-to-cart-option-select" class="w-select" style="display: none;" name="{{ "option" | append: forloop.index }}">{%- render "product-options", option: option -%}</select><div data-node-type="add-to-cart-option-pill-group" class="w-commerce-commerceaddtocartoptionpillgroup" aria-label="{{ "option" | append: forloop.index  }}">{%- for value in option.values -%}<div data-node-type="add-to-cart-option-pill" class="w-commerce-commerceaddtocartoptionpill" data-option-name="{{ value | handle }}"><div data-node-type="block">{{ value }}</div></div>{%- endfor -%}</div></fieldset>{%- endfor -%}</div>{%- endunless -%}{%- assign condition_value = product.type | strip -%}{%- unless condition_value == "e348fd487d0102946c9179d2a94bb613" -%}<label for="quantity-8c26259698a293bba8dbdc500f4f84e5" position-id="d50d18e9-d993-b00d-ef8d-0346bcd38311">{{ 'tn48bd3755' | t }}</label>{%- endunless -%}{%- assign condition_value = product.type | strip -%}{%- unless condition_value == "e348fd487d0102946c9179d2a94bb613" -%}<input type="number" pattern="^[0-9]+$" inputmode="numeric" id="quantity-8c26259698a293bba8dbdc500f4f84e5" name="quantity" min="1" position-id="d50d18e9-d993-b00d-ef8d-0346bcd38313" class="w-commerce-commerceaddtocartquantityinput" value="1">{%- endunless -%}<input type="submit" position-id="d50d18e9-d993-b00d-ef8d-0346bcd38314" data-node-type="commerce-add-to-cart-button" data-loading-text="Adding to cart..." value="{{ 'tn26bdceda' | t }}" aria-busy="false" aria-haspopup="dialog" class="w-commerce-commerceaddtocartbutton">
+        <a position-id="d50d18e9-d993-b00d-ef8d-0346bcd38315" data-node-type="commerce-buy-now-button" data-default-text="Buy now" data-subscription-text="Subscribe now" aria-busy="false" aria-haspopup="false" class="w-commerce-commercebuynowbutton" href="/checkout">{{ 't71bb9a1c' | t }}</a>
+      {%- render "product-variants-data" product: product -%}{%- endform -%}
+      <div tabindex="0" style="display:none" class="w-commerce-commerceaddtocartoutofstock">
+        <div>{{ 't7aaa2dac' | t }}</div>
+      </div>
+      <div aria-live="assertive" data-node-type="commerce-add-to-cart-error" style="display:none" class="w-commerce-commerceaddtocarterror">
+        <div data-node-type="commerce-add-to-cart-error" data-w-add-to-cart-quantity-error="Product is not available in this quantity." data-w-add-to-cart-general-error="Something went wrong when adding this item to the cart." data-w-add-to-cart-mixed-cart-error="You can’t purchase another product with a subscription." data-w-add-to-cart-buy-now-error="Something went wrong when trying to purchase this item." data-w-add-to-cart-checkout-disabled-error="Checkout is disabled on this site." data-w-add-to-cart-select-all-options-error="Please select an option in each set.">{{ 'tn1c765d0d' | t }}</div>
+      </div>
+    </div>
+  </div>
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=644bb6c395dc926d907df42b" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="{{ 'webflow.js' | asset_url }}" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <!--  SWIPERS NBFM // Alle Swipers moeten nog gebouwd worden  -->
+  <script>
+  	var mySwiper = new Swiper ('#bestselling-swiper', {
+    	// Optional parameters
+    	spaceBetween: 24,
+    	slidesPerView: 1.48,
+    	freeMode: false,
+    	loop: false,
+    	centeredSlides: false,
+      slidesPerGroup: 1,
+      loopFillGroupWithBlank: false,
+    	// Enable lazy loading
+    	lazy: true,
+      navigation: {
+        nextEl: "#bestsellers-next-arrow",
+        prevEl: "#bestsellers-prev-arrow",
+      },
+    	keyboard: {
+      	enabled: true,
+   	  },
+      scrollbar: {
+      el: ".swiper-drag-wrapper.swiper-dragger-bestsellers",
+      draggable: true,
+      dragClass: ".swiper-drag.drag-bestsellers",
+      snapOnRelease: true
+    },
+        breakpoints: {
+      480: {
+        slidesPerView: 2,
+    	spaceBetween: 24,
+        slidesPerGroup: 1,
+        loopFillGroupWithBlank: false,
+      },
+      992: {
+        slidesPerView: 4.08,
+        spaceBetween: 32,
+        slidesPerGroup: 1,
+        loopFillGroupWithBlank: false,
+      },
+    }
+  })
+</script>
+  <script>
+  	var mySwiper = new Swiper ('#category-swiper', {
+    	// Optional parameters
+    	spaceBetween: 16,
+    	slidesPerView: 1.38,
+    	freeMode: false,
+    	loop: false,
+    	centeredSlides: false,
+      slidesPerGroup: 1,
+      loopFillGroupWithBlank: false,
+    	// Enable lazy loading
+    	lazy: true,
+      navigation: {
+        nextEl: "#category-next-arrow",
+        prevEl: "#category-prev-arrow",
+      },
+    	keyboard: {
+      	enabled: true,
+   	  },
+      scrollbar: {
+      	el: ".swiper-drag-wrapper.swiper-dragger-collections",
+      	draggable: true,
+      	dragClass: ".swiper-drag.drag-collections",
+      	snapOnRelease: true
+      },
+        breakpoints: {
+      480: {
+        slidesPerView: 2.38,
+        slidesPerGroup: 1,
+        loopFillGroupWithBlank: false,
+      },
+      992: {
+        slidesPerView: 3,
+        slidesPerGroup: 1,
+        loopFillGroupWithBlank: false,
+      },
+    }
+  })
+</script>
+  <script>
+  var mySwiper = new Swiper('#testimonials-swiper', {
+    // Optional parameters
+    spaceBetween: 16,
+    slidesPerView: 1,
+    freeMode: false,
+    loop: true,
+    centeredSlides: true,
+    centeredSlidesBounds: true,
+    slidesPerGroup: 1,
+    loopFillGroupWithBlank: false,
+    // Enable lazy loading
+    lazy: true,
+    navigation: {
+      nextEl: '#testimonials-next-arrow',
+      prevEl: '#testimonials-prev-arrow',
+    },
+    keyboard: {
+      enabled: true,
+    },
+    scrollbar: {
+      	el: ".swiper-drag-wrapper.swiper-dragger-testimonials",
+      	draggable: true,
+      	dragClass: ".swiper-drag.drag-testimonials",
+      	snapOnRelease: true
+     },
+    breakpoints: {
+      480: {
+        slidesPerView: 2,
+        slidesPerGroup: 2,
+        spaceBetween: 24,
+        centeredSlides: true, // Add this line to center the slides
+        loopFillGroupWithBlank: false,
+      },
+      992: {
+        slidesPerView: 3.6,
+        slidesPerGroup: 1,
+        spaceBetween: 32,
+        centeredSlides: true, // Add this line to center the slides
+        loopFillGroupWithBlank: false,
+      },
+    },
+  });
+</script>
+  <script>
+  	var mySwiper = new Swiper ('#blogs-swiper', {
+    	// Optional parameters
+    	spaceBetween: 24,
+    	slidesPerView: 1.29,
+    	freeMode: false,
+    	loop: false,
+    	centeredSlides: false,
+      slidesPerGroup: 1,
+      loopFillGroupWithBlank: false,
+    	// Enable lazy loading
+    	lazy: true,
+      navigation: {
+        nextEl: ".blogs-next-arrow",
+        prevEl: ".blogs-prev-arrow",
+      },
+    	keyboard: {
+      	enabled: true,
+   	  },
+      scrollbar: {
+      	el: ".swiper-drag-wrapper.swiper-dragger-blogs",
+      	draggable: true,
+      	dragClass: ".swiper-drag.drag-blogs",
+      	snapOnRelease: true
+      },
+        breakpoints: {
+      480: {
+        slidesPerView: 2,
+        slidesPerGroup: 2,
+    	spaceBetween: 24,
+        loopFillGroupWithBlank: false,
+      },
+      992: {
+        slidesPerView: 2.7,
+        slidesPerGroup: 2.7,
+    	spaceBetween: 32,
+        loopFillGroupWithBlank: false,
+      },
+    }
+  })
+</script>
+  <script>
+  	var mySwiper = new Swiper ('#programs-swiper', {
+    	// Optional parameters
+    	spaceBetween: 24,
+    	slidesPerView: 1.2,
+    	freeMode: false,
+    	loop: true,
+    	centeredSlides: false,
+      slidesPerGroup: 1,
+      loopFillGroupWithBlank: false,
+    	// Enable lazy loading
+    	lazy: true,
+      navigation: {
+        nextEl: "#programs-next-arrow",
+        prevEl: "#programs-prev-arrow",
+      },
+    	keyboard: {
+      	enabled: true,
+   	  },
+      scrollbar: {
+      	el: ".swiper-drag-wrapper.swiper-dragger-programs",
+      	draggable: true,
+      	dragClass: ".swiper-drag.drag-programs",
+      	snapOnRelease: true
+      },
+        breakpoints: {
+      480: {
+        slidesPerView: 2,
+        slidesPerGroup: 1,
+        loopFillGroupWithBlank: false,
+      },
+      992: {
+        slidesPerView: 3.48,
+        slidesPerGroup: 1,
+        loopFillGroupWithBlank: false,
+      },
+    }
+  })
+</script>
+  <script>
+  	var mySwiper = new Swiper ('#how-to-swiper', {
+    	// Optional parameters
+    	spaceBetween: 24,
+    	slidesPerView: 1,
+    	freeMode: false,
+    	loop: true,
+    	centeredSlides: true,
+      slidesPerGroup: 1,
+      loopFillGroupWithBlank: false,
+    	// Enable lazy loading
+    	lazy: true,
+      navigation: {
+        nextEl: "#how-to-next-arrow",
+        prevEl: "#how-to-prev-arrow",
+      },
+    	keyboard: {
+      	enabled: true,
+   	  },
+      scrollbar: {
+      	el: ".swiper-drag-wrapper.swiper-dragger-how",
+      	draggable: true,
+      	dragClass: ".swiper-drag.drag-how",
+      	snapOnRelease: true
+      },
+        breakpoints: {
+      480: {
+        slidesPerView: 2.8,
+        slidesPerGroup: 1,
+        loopFillGroupWithBlank: false,
+      },
+      992: {
+        slidesPerView: 2.8,
+        slidesPerGroup: 1,
+    	centeredSlides: false,
+    	loop: false,
+        loopFillGroupWithBlank: false,
+      },
+    }
+  })
+</script>
+
+{{ 'udesly-shopify.min.js' | asset_url | script_tag }}

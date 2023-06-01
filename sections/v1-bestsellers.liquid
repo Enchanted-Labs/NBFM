@@ -1,0 +1,104 @@
+
+    <div class="page-padding">
+      <div class="container-v1">
+        <div class="bestselling-section-content">
+          <div class="bestseller-top-content">
+            <div class="bestseller-heading">
+              <div class="bestsellers-title-holder">
+                <h1 class="bestsellers-h1">{{ section.settings.title | newline_to_br }}</h1>
+                <div class="bestseller-cta mobile">{{ 't3b7a9ef' | t }}</div>
+              </div>
+              <div>{{ section.settings.paragraph | newline_to_br }}</div>
+            </div>
+            {%- if section.settings.knop_laten_zien -%}<div class="bestseller-cta desktop" href="{{ section.settings.button_link }}">
+              <div>{{ section.settings.button_text }}</div>
+            </div>{%- endif -%}
+          </div>
+          <div id="bestselling-swiper" class="swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
+            <div class="bestsellers-swiper swiper-wrapper">
+              {%- for block in section.blocks -%}{%- if block.type == "bestseller" -%}<div class="swiper-slide" block.shopify_attributes>
+                <div class="bestselling-swipe-content">
+                  <div class="bestseller-image-wrapper"><img src="{{ 'frame-2922.png' | asset_url }}" loading="lazy" sizes="(max-width: 479px) 88vw, 418.7890625px" srcset="{{ 'frame-2922-p-500.png' | asset_url }} 500w, {{ 'frame-2922.png' | asset_url }} 780w" alt="" class="absolute-img"></div>
+                  <div class="product-card-title">
+                    <div>{{ 't3ab9a1c' | t }}</div>
+                    <div class="product-card-price">
+                      <div class="price-discount">{{ 'tn3c652208' | t }}</div>
+                      <div class="price-p">{{ 'tn3c652208' | t }}</div>
+                      <div class="price-discount-save">{{ 'tn5a439e0b' | t }}</div>
+                    </div>
+                    <div class="product-card-info">{{ 't152013e9' | t }}</div>
+                  </div>
+                  <div class="product-card-btn">
+                    <div>{{ 'tn59ff09bd' | t }}</div>
+                  </div>
+                </div>
+                <div class="product-card-label">{{ block.settings.label | newline_to_br }}</div>
+              </div>{%- endif -%}{%- endfor -%}
+            </div>
+            <div class="swiper-drag-wrapper swiper-dragger-bestsellers">
+              <div id="drag-bestsellers" class="swiper-drag drag-bestsellers"></div>
+            </div>
+            <div class="slider-arrow-container bestsellers">
+              <div id="bestsellers-prev-arrow" class="slider-arrow"><img src="{{ 'ic20-arrow-right_1.svg' | asset_url }}" loading="lazy" alt="" class="arrow-swipe"></div>
+              <div id="bestsellers-next-arrow" class="slider-arrow"><img src="{{ 'ic20-arrow-right.svg' | asset_url }}" loading="lazy" alt="" class="arrow-swipe"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+<script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","bestsellers-section");</script>
+        
+{% schema %}
+{
+  "name": "V1 - Bestsellers",
+  "tag": "div",
+  "class": "bestsellers-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "BEKIJK MEER"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title",
+      "default": "Bestsellers"
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph",
+      "label": "Paragraph",
+      "default": "Wil je ontdekken welke supplementen perfect bij jou passen?"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "knop_laten_zien",
+      "label": "Knop laten zien?",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Bestseller",
+      "type": "bestseller",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "label",
+          "label": "Label",
+          "default": "🏆 MEEST POPULAIR"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

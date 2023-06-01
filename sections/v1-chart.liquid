@@ -1,0 +1,58 @@
+
+    <div class="page-padding">
+      <div class="container-v3">
+        <div class="heading-container chart">
+          <h1 class="h1-section chart">{{ section.settings.titel | newline_to_br }}</h1>
+          <p class="paragraph">{{ section.settings.paragraph | newline_to_br }}</p>
+        </div>
+        <div class="chart-container">
+          <div class="chart-sum-list">
+            <div id="w-node-bfff42b3-3c33-935c-f8ac-71d2efe20657-efe2064d" class="chart-list-cell">{{ 't5f441016' | t }}</div>
+            <div id="w-node-bfff42b3-3c33-935c-f8ac-71d2efe20659-efe2064d" class="chart-list-cell">{{ 'td50b46b' | t }}</div>
+            <div id="w-node-bfff42b3-3c33-935c-f8ac-71d2efe2065b-efe2064d" class="chart-list-cell">{{ 't3a534cbd' | t }}</div>
+            <div id="w-node-bfff42b3-3c33-935c-f8ac-71d2efe2065d-efe2064d" class="chart-list-cell">{{ 't3a534cbd' | t }}</div>
+            <div id="w-node-bfff42b3-3c33-935c-f8ac-71d2efe2065f-efe2064d" class="chart-list-cell">{{ 't3a534cbe' | t }}</div>
+          </div>
+          <div class="chart-nfbm">
+            <div class="logo-box left"><img src="{{ 'logo.png' | asset_url }}" loading="lazy" alt="" class="chart-img"></div>
+            <div class="logo-box right">{{ 'tn393a5907' | t }}</div>
+            <div id="w-node-bfff42b3-3c33-935c-f8ac-71d2efe20666-efe2064d" class="chart-cell left"><img src="{{ 'chart-checkmark.svg' | asset_url }}" loading="lazy" alt="" class="chart-icon"></div>
+            <div id="w-node-bfff42b3-3c33-935c-f8ac-71d2efe20668-efe2064d" class="chart-cell right"><img src="{{ 'chart-black-check.svg' | asset_url }}" loading="lazy" alt="" class="chart-icon"></div>
+            <div id="w-node-bfff42b3-3c33-935c-f8ac-71d2efe2066a-efe2064d" class="chart-cell left"><img src="{{ 'chart-checkmark.svg' | asset_url }}" loading="lazy" alt="" class="chart-icon"></div>
+            <div id="w-node-bfff42b3-3c33-935c-f8ac-71d2efe2066c-efe2064d" class="chart-cell right"><img src="{{ 'chart-cross.svg' | asset_url }}" loading="lazy" alt="" class="chart-icon"></div>
+            <div id="w-node-bfff42b3-3c33-935c-f8ac-71d2efe2066e-efe2064d" class="chart-cell left"><img src="{{ 'chart-checkmark.svg' | asset_url }}" loading="lazy" alt="" class="chart-icon"></div>
+            <div id="w-node-bfff42b3-3c33-935c-f8ac-71d2efe20670-efe2064d" class="chart-cell right"><img src="{{ 'chart-cross.svg' | asset_url }}" loading="lazy" alt="" class="chart-icon"></div>
+            <div id="w-node-bfff42b3-3c33-935c-f8ac-71d2efe20672-efe2064d" class="chart-cell left"><img src="{{ 'chart-checkmark.svg' | asset_url }}" loading="lazy" alt="" class="chart-icon"></div>
+            <div id="w-node-bfff42b3-3c33-935c-f8ac-71d2efe20674-efe2064d" class="chart-cell right"><img src="{{ 'chart-cross.svg' | asset_url }}" loading="lazy" alt="" class="chart-icon"></div>
+            <div id="w-node-bfff42b3-3c33-935c-f8ac-71d2efe20676-efe2064d" class="chart-cell left"><img src="{{ 'chart-checkmark.svg' | asset_url }}" loading="lazy" alt="" class="chart-icon"></div>
+            <div id="w-node-bfff42b3-3c33-935c-f8ac-71d2efe20678-efe2064d" class="chart-cell right"><img src="{{ 'chart-cross.svg' | asset_url }}" loading="lazy" alt="" class="chart-icon"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wave primairy-color"></div>
+  
+
+<script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","chart-section");</script>
+        
+{% schema %}
+{
+  "name": "V1 - Chart",
+  "tag": "div",
+  "class": "chart-section",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "titel",
+      "label": "Titel",
+      "default": "NBFM in vergelijking."
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph",
+      "label": "Paragraph",
+      "default": "Sluit je aan bij 10.000+ mensen die hun aanbeveling al hebben ontvangen."
+    }
+  ]
+}
+{% endschema %}

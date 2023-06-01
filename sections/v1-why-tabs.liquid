@@ -1,0 +1,102 @@
+
+    <div class="page-padding">
+      <div class="container-v2 vertical">
+        <div class="heading-container why">
+          <div class="tagline-p">{{ section.settings.tagline | newline_to_br }}</div>
+          <h1 class="h1-section why">{{ section.settings.titel | newline_to_br }}</h1>
+          <p class="paragraph">{{ section.settings.paragraph | newline_to_br }}</p>
+        </div>
+        <div class="why-swiper-wrapped">
+          <div id="blogs-swiper" class="swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
+            <div class="bestsellers-swiper swiper-wrapper">
+              {%- for block in section.blocks -%}{%- if block.type == "bestseller" -%}<div class="swiper-slide blog-swipe" block.shopify_attributes>
+                <div class="blog-swipe-content">
+                  <div class="blog-img-wrapper"><img src="{{ 'frame-2922_2.png' | asset_url }}" loading="lazy" sizes="100vw" srcset="{{ 'frame-2922_2-p-500.png' | asset_url }} 500w, {{ 'frame-2922_2-p-800.png' | asset_url }} 800w, {{ 'frame-2922_2.png' | asset_url }} 868w" alt="" class="absolute-img no-hover"></div>
+                  <div class="blog-card-title why">
+                    <div class="blog-title">{{ 'tn5eb1b4c9' | t }}</div>
+                    <div class="blog-p">{{ 'tn731a7d53' | t }}</div>
+                  </div>
+                </div>
+              </div>{%- endif -%}{%- endfor -%}
+            </div>
+            <div class="swiper-drag-wrapper swiper-dragger-blogs">
+              <div class="swiper-drag drag-blogs"></div>
+            </div>
+            <div class="slider-arrow-container blog">
+              <div id="blogs-prev-arrow" class="slider-arrow"><img src="{{ 'ic20-arrow-right_1.svg' | asset_url }}" loading="lazy" alt="" class="arrow-swipe"></div>
+              <div id="blogs-next-arrow" class="slider-arrow"><img src="{{ 'ic20-arrow-right.svg' | asset_url }}" loading="lazy" alt="" class="arrow-swipe"></div>
+            </div>
+          </div>
+        </div>
+        <div data-current="Tab 1" data-easing="ease" data-duration-in="300" data-duration-out="100" class="tabs-component w-tabs">
+          <div class="tabs-images-content w-tab-content">
+            <div data-w-tab="Tab 1" class="tab-img w-tab-pane w--tab-active"><img sizes="(max-width: 479px) 100vw, (max-width: 767px) 79vw, (max-width: 991px) 80vw, 411px" srcset="{{ 'unflavored-protein-powder-67353d5c5ed644c4966619a4b095f3b4-p-500.jpg' | asset_url }} 500w, {{ 'unflavored-protein-powder-67353d5c5ed644c4966619a4b095f3b4-p-800.jpg' | asset_url }} 800w, {{ 'unflavored-protein-powder-67353d5c5ed644c4966619a4b095f3b4-p-1080.jpg' | asset_url }} 1080w, {{ 'unflavored-protein-powder-67353d5c5ed644c4966619a4b095f3b4.jpg' | asset_url }} 1244w" src="{{ 'unflavored-protein-powder-67353d5c5ed644c4966619a4b095f3b4.jpg' | asset_url }}" loading="lazy" alt="" class="tab-image"></div>
+            <div data-w-tab="Tab 2" class="tab-img w-tab-pane"><img loading="lazy" src="{{ 'protein-shake.gif' | asset_url }}" alt="" class="tab-image"></div>
+            <div data-w-tab="Tab 3" class="tab-img w-tab-pane"><img src="{{ 'preparing_fresh_protein_shake_1296x728-header-1296x729.webp' | asset_url }}" loading="lazy" alt="" class="tab-image"></div>
+          </div>
+          <div class="tabs-menu w-tab-menu">
+            <a data-w-tab="Tab 1" class="tab-trigger w-inline-block w-tab-link w--current">
+              <div class="tab-inner-contents">
+                <div class="text-content-tab">
+                  <div class="tab-title">{{ 't46e9be5' | t }}</div>
+                  <div class="tab-paragraph">{{ 'tn4c91487f' | t }}</div>
+                </div>
+              </div>
+            </a>
+            <a data-w-tab="Tab 2" class="tab-trigger w-inline-block w-tab-link">
+              <div class="tab-inner-contents">
+                <div class="text-content-tab">
+                  <div class="tab-title">{{ 't4c25ee6' | t }}</div>
+                  <div class="tab-paragraph">{{ 't75fb675' | t }}</div>
+                </div>
+              </div>
+            </a>
+            <a data-w-tab="Tab 3" class="tab-trigger w-inline-block w-tab-link">
+              <div class="tab-inner-contents">
+                <div class="text-content-tab">
+                  <div class="tab-title">{{ 't7a8166a9' | t }}</div>
+                  <div class="tab-paragraph">{{ 'tn2559d506' | t }}</div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+<script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","why-section");</script>
+        
+{% schema %}
+{
+  "name": "V1 - Why Tabs",
+  "tag": "div",
+  "class": "why-section",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "TWEEDE USP"
+    },
+    {
+      "type": "textarea",
+      "id": "titel",
+      "label": "Titel",
+      "default": "Binnen enkele minuten een gezonde shake"
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph",
+      "label": "Paragraph",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Bestseller",
+      "type": "bestseller"
+    }
+  ]
+}
+{% endschema %}

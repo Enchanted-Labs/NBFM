@@ -1,0 +1,83 @@
+
+    <div class="secondairy-design-section">
+      <div class="content-container">
+        <div class="w-layout-grid product-details-grid">
+          <div id="w-node-_1ccf492f-87f9-6447-ef40-910857f10359-57f10355" class="content-image-block">{%- if section.settings.image == nil -%}<img src="{{ 'frame-17815.png' | asset_url }}" srcset="{{ 'frame-17815-p-500.png' | asset_url }} 500w, {{ 'frame-17815-p-800.png' | asset_url }} 800w, {{ 'frame-17815-p-1080.png' | asset_url }} 1080w, {{ 'frame-17815.png' | asset_url }} 1190w" sizes="(max-width: 479px) 92vw, (max-width: 767px) 86vw, (max-width: 991px) 96vw, 411px" alt="" class="content-image">{%- else -%}<img src="{{ section.settings.image.src | img_url: 'master' }}" alt="{{ section.settings.image.alt | escape }}" class="content-image" srcset="{{ section.settings.image | img_url: '1920x' }} 1920w,{{ section.settings.image | img_url: '1600x' }} 1600w,{{ section.settings.image | img_url: '1366x' }} 1366w,{{ section.settings.image | img_url: '1024x' }} 1024w,{{ section.settings.image | img_url: '768x' }} 768w,{{ section.settings.image | img_url: '640x' }} 640w">{%- endif -%}</div>
+          <div id="w-node-_1ccf492f-87f9-6447-ef40-910857f1035b-57f10355" class="content-block">
+            <div class="content-title-wrapper">
+              <div class="tagline-p">{{ section.settings.tagline | newline_to_br }}</div>
+              <h2 class="h2-product-section">{{ section.settings.title | newline_to_br }}</h2>
+              <p class="product-paragraph opa-80">{{ section.settings.paragraph | newline_to_br }}</p>
+            </div>
+            <div class="benefit-grid">
+              {%- for block in section.blocks -%}{%- if block.type == "benefit" -%}<div id="w-node-_1ccf492f-87f9-6447-ef40-910857f10364-57f10355" class="beneft-block" block.shopify_attributes>
+                <div class="benefit-icon">{%- if block.settings.icon == nil -%}<img src="{{ 'vegan.png' | asset_url }}" loading="lazy" alt="" class="benefit-icon-img">{%- else -%}<img src="{{ block.settings.icon.src | img_url: 'master' }}" loading="lazy" alt="{{ block.settings.icon.alt | escape }}" class="benefit-icon-img" srcset="{{ block.settings.icon | img_url: '1920x' }} 1920w,{{ block.settings.icon | img_url: '1600x' }} 1600w,{{ block.settings.icon | img_url: '1366x' }} 1366w,{{ block.settings.icon | img_url: '1024x' }} 1024w,{{ block.settings.icon | img_url: '768x' }} 768w,{{ block.settings.icon | img_url: '640x' }} 640w">{%- endif -%}</div>
+                <div class="benefit-block-title">{{ block.settings.title | newline_to_br }}</div>
+                <div>{{ block.settings.paragraph | newline_to_br }}</div>
+              </div>{%- endif -%}{%- endfor -%}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+<script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","product-storytelling-section");</script>
+        
+{% schema %}
+{
+  "name": "V1 - Product Info - Image",
+  "tag": "section",
+  "class": "product-storytelling-section",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "TWEEDE USP"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title",
+      "default": "Describe how feature two works"
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph",
+      "label": "Paragraph",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Benefit",
+      "type": "benefit",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title",
+          "default": "Veganistisch"
+        },
+        {
+          "type": "textarea",
+          "id": "paragraph",
+          "label": "Paragraph",
+          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

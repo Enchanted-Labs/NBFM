@@ -1,0 +1,21 @@
+
+    <div class="text-block text-block">{{ section.settings.text }}</div>
+  
+
+<script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","announcement-bar");</script>
+        
+{% schema %}
+{
+  "name": "V1 - Announcement Bar",
+  "tag": "div",
+  "class": "announcement-bar",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text",
+      "default": "17% KORTING OVER DE HELE SITE - CODE: EIWIT17"
+    }
+  ]
+}
+{% endschema %}

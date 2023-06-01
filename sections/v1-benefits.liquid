@@ -1,0 +1,102 @@
+
+    <div class="page-padding">
+      <div class="benefit-grid mobile">
+        <div class="benefits-wrapper f2wf-columns">
+          <div class="benefit-img">{%- if section.settings.image == nil -%}<img class="absolute-img no-hover" src="{{ 'image-1.png' | asset_url }}" width="595" height="640" alt="" sizes="(max-width: 479px) 82vw, (max-width: 767px) 75vw, (max-width: 991px) 74vw, (max-width: 1439px) 44vw, 601px" loading="lazy" srcset="{{ 'image-1-p-500.png' | asset_url }} 500w, {{ 'image-1-p-800.png' | asset_url }} 800w, {{ 'image-1-p-1080.png' | asset_url }} 1080w, {{ 'image-1.png' | asset_url }} 1190w">{%- else -%}<img class="absolute-img no-hover" src="{{ section.settings.image.src | img_url: 'master' }}" width="595" height="640" alt="{{ section.settings.image.alt | escape }}" loading="lazy" srcset="{{ section.settings.image | img_url: '1920x' }} 1920w,{{ section.settings.image | img_url: '1600x' }} 1600w,{{ section.settings.image | img_url: '1366x' }} 1366w,{{ section.settings.image | img_url: '1024x' }} 1024w,{{ section.settings.image | img_url: '768x' }} 768w,{{ section.settings.image | img_url: '640x' }} 640w">{%- endif -%}</div>
+        </div>
+        <div class="benefit-content-wrapper">
+          <div class="benefit-content">
+            <div class="benefits-title">{{ section.settings.title | newline_to_br }}</div>
+            <div class="benefits-paragraph">{{ section.settings.paragraph | newline_to_br }}</div>
+          </div>
+          <div class="product-accordion-list">
+            {%- for block in section.blocks -%}{%- if block.type == "benefit" -%}<div data-click="accordion" class="product-accordion-item" block.shopify_attributes>
+              <div class="product-accordion">
+                <div class="accordion-title">{{ block.settings.title | newline_to_br }}</div>
+                <div class="benefit-accordion-icon">
+                  <div class="plus-icon absolute w-embed"><svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M3.89658 8.544C3.77924 8.544 3.67791 8.50667 3.59258 8.432C3.51791 8.34667 3.48058 8.24533 3.48058 8.128V5.376H0.808578C0.691245 5.376 0.589911 5.33867 0.504578 5.264C0.429911 5.17867 0.392578 5.07733 0.392578 4.96V3.504C0.392578 3.38667 0.429911 3.29067 0.504578 3.216C0.589911 3.13067 0.691245 3.088 0.808578 3.088H3.48058V0.416C3.48058 0.298667 3.51791 0.202667 3.59258 0.128C3.67791 0.0426668 3.77924 0 3.89658 0H5.52858C5.64591 0 5.74191 0.0426668 5.81658 0.128C5.90191 0.202667 5.94458 0.298667 5.94458 0.416V3.088H8.58458C8.70191 3.088 8.79791 3.13067 8.87258 3.216C8.95791 3.29067 9.00058 3.38667 9.00058 3.504V4.96C9.00058 5.07733 8.95791 5.17867 8.87258 5.264C8.79791 5.33867 8.70191 5.376 8.58458 5.376H5.94458V8.128C5.94458 8.24533 5.90191 8.34667 5.81658 8.432C5.74191 8.50667 5.64591 8.544 5.52858 8.544H3.89658Z" fill="#223453"></path>
+                    </svg></div>
+                  <div class="minus-icon absolute w-embed"><svg width="6" height="3" viewBox="0 0 6 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0.464828 2.72C0.347495 2.72 0.246161 2.68267 0.160828 2.608C0.0861615 2.52267 0.0488281 2.42133 0.0488281 2.304V0.415999C0.0488281 0.298666 0.0861615 0.202667 0.160828 0.128C0.246161 0.0426668 0.347495 0 0.464828 0H5.58483C5.70216 0 5.79816 0.0426668 5.87283 0.128C5.95816 0.202667 6.00083 0.298666 6.00083 0.415999V2.304C6.00083 2.42133 5.95816 2.52267 5.87283 2.608C5.79816 2.68267 5.70216 2.72 5.58483 2.72H0.464828Z" fill="#223453"></path>
+                    </svg></div>
+                </div>
+                <div class="product-accordion-icon new"></div>
+              </div>
+              <div class="product-accordion-info-container">
+                <div class="product-accordion-content">
+                  <p class="accordion-benefit-uitleg">{{ block.settings.paragraph | newline_to_br }}</p>
+                </div>
+              </div>
+            </div>{%- endif -%}{%- endfor -%}
+          </div>
+          <div class="benefit-cta">
+            <a href="{{ section.settings.link }}" target="_blank" class="actions">
+              <div class="button">{{ section.settings.button_text }}</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wave bg-color"></div>
+  
+
+<script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","benefits-section");</script>
+        
+{% schema %}
+{
+  "name": "V1 - Benefits",
+  "tag": "div",
+  "class": "benefits-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "SHOP DE COLLECTIE"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title",
+      "default": "Dit waren niet alle voordelen van #NBFM."
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph",
+      "label": "Paragraph",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. "
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Benefit",
+      "type": "benefit",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title",
+          "default": "⭐️ Veilig in gebruik"
+        },
+        {
+          "type": "textarea",
+          "id": "paragraph",
+          "label": "Paragraph",
+          "default": "Highlight Unique Selling Propositions with a short summary of the key feature and how it benefits customers."
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

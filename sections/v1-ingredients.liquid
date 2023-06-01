@@ -1,0 +1,85 @@
+
+    <div class="page-padding">
+      <div class="container-v1">
+        <div class="bestselling-section-content">
+          <div class="bestseller-top-content">
+            <div class="bestseller-heading">
+              <div class="bestsellers-title-holder">
+                <h1 class="bestsellers-h1">{{ section.settings.title | newline_to_br }}</h1>
+              </div>
+              <div>{{ section.settings.paragraph | newline_to_br }}</div>
+            </div>
+          </div>
+          <div id="how-to-swiper" class="swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
+            <div class="bestsellers-swiper swiper-wrapper">
+              {%- for block in section.blocks -%}{%- if block.type == "slide" -%}<div class="swiper-slide" block.shopify_attributes>
+                <div class="blog-swipe-content how">
+                  <div class="blog-img-wrapper">{%- if block.settings.image == nil -%}<img src="{{ '2022-07-01_rz_vitamin-c-serum_50ml_weitere-bilder-02_1000x1000px_komprimiert.webp' | asset_url }}" loading="lazy" alt="" class="absolute-img no-hover">{%- else -%}<img src="{{ block.settings.image.src | img_url: 'master' }}" loading="lazy" alt="{{ block.settings.image.alt | escape }}" class="absolute-img no-hover" srcset="{{ block.settings.image | img_url: '1920x' }} 1920w,{{ block.settings.image | img_url: '1600x' }} 1600w,{{ block.settings.image | img_url: '1366x' }} 1366w,{{ block.settings.image | img_url: '1024x' }} 1024w,{{ block.settings.image | img_url: '768x' }} 768w,{{ block.settings.image | img_url: '640x' }} 640w">{%- endif -%}</div>
+                  <div class="blog-card-title how">
+                    <div class="blog-title">{{ block.settings.title | newline_to_br }}</div>
+                    <div class="blog-p">{{ block.settings.paragraph | newline_to_br }}</div>
+                  </div>
+                </div>
+              </div>{%- endif -%}{%- endfor -%}
+            </div>
+            <div class="swiper-drag-wrapper swiper-dragger-how">
+              <div class="swiper-drag drag-how"></div>
+            </div>
+            <div class="slider-arrow-container blog">
+              <div id="how-to-prev-arrow" class="slider-arrow"><img src="{{ 'ic20-arrow-right_1.svg' | asset_url }}" loading="lazy" alt="" class="arrow-swipe"></div>
+              <div id="how-to-next-arrow" class="slider-arrow"><img src="{{ 'ic20-arrow-right.svg' | asset_url }}" loading="lazy" alt="" class="arrow-swipe"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+<script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","how-it-works-section");</script>
+        
+{% schema %}
+{
+  "name": "V1 - Ingredients",
+  "tag": "div",
+  "class": "how-it-works-section",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title",
+      "default": "Ingrediënten"
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph",
+      "label": "Paragraph",
+      "default": "Wil je ontdekken welke supplementen perfect bij jou passen? We hebben samen met onze diëtiste een quiz ontwikkeld die"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Slide",
+      "type": "slide",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title",
+          "default": "Vitamine C"
+        },
+        {
+          "type": "textarea",
+          "id": "paragraph",
+          "label": "Paragraph",
+          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

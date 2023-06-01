@@ -1,0 +1,82 @@
+
+    <div class="page-padding">
+      <div class="container-v4">
+        <div class="contact-form">
+          <div class="contact2_component w-form">
+            {%- form "contact",  class: "contact2_form" -%}
+              <div class="form-field-2col">
+                <div class="form-field-wrapper"><label for="contact[contact_first_name_]" class="field-label">{{ section.settings.surname | newline_to_br }}</label><input type="text" class="form-input-5 w-input" maxlength="256" name="contact[contact_first_name_]" data-name="Contact 2 First Name 3" placeholder="{{ 'tn66a35e65' | t }}" id="Contact-2-First-Name-3" required=""></div>
+                <div class="form-field-wrapper"><label for="contact[contact_last_name_]" class="field-label">{{ section.settings.last_name | newline_to_br }}</label><input type="text" class="form-input-5 w-input" maxlength="256" name="contact[contact_last_name_]" data-name="Contact 2 Last Name 2" placeholder="{{ 't3bbd219a' | t }}" id="Contact-2-Last-Name-2"></div>
+              </div>
+              <div class="form-field-2col is-mobile-1col">
+                <div class="form-field-wrapper"><label for="Contact-2-Email-3" class="field-label">{{ section.settings.email | newline_to_br }}</label><input type="email" class="form-input-5 w-input" maxlength="256" name="contact[email]" data-name="Contact 2 Email 2" placeholder="{{ 't766cd3b0' | t }}" id="Contact-2-Email-2" required=""></div>
+                <div class="form-field-wrapper"><label for="contact[contact_phone_]" class="field-label">{{ section.settings.telephone_number | newline_to_br }}</label><input type="tel" class="form-input-5 w-input" maxlength="256" name="contact[contact_phone_]" data-name="Contact 2 Phone 2" placeholder="{{ 'tn5abd5f76' | t }}" id="Contact-2-Phone-2" required=""></div>
+              </div>
+              <div class="form-field-wrapper"><label for="contact[contact_select_]" class="field-label">{{ section.settings.select_a_topic | newline_to_br }}</label><select id="Contact-2-Select-2" name="contact[contact_select_]" data-name="Contact 2 Select 2" required="" class="form-input-5 is-select-input w-select">
+                  <option value="">{{ 't57f3b1cc' | t }}</option>
+                  <option value="First">{{ 'tn491b32af' | t }}</option>
+                  <option value="Second">{{ 't3c4172cd' | t }}</option>
+                  <option value="Third">{{ 'tn1b351146' | t }}</option>
+                </select></div>
+              <div class="form-field-wrapper"><label for="contact[contact_message_]" class="field-label">{{ section.settings.message | newline_to_br }}</label><textarea placeholder="{{ 't4a62464e' | t }}" maxlength="5000" id="Contact-2-Message-2" name="contact[contact_message_]" data-name="Contact 2 Message 2" required="" class="form-input-5 is-text-area w-input"></textarea></div><input type="submit" value="{{ 'tn4d5e006c' | t }}" data-wait="Please wait..." id="w-node-_75bba3d4-405d-8417-49a3-26fe518784d1-518784b1" class="button-3 w-button">
+            {%- assign form_success = form.posted_successfully? -%}{%- assign form_errors = form.errors -%}{%- render "form-general-script", form_success: form_success, form_errors: form_errors -%}{%- endform -%}
+            <div class="success-message-2 w-form-done  {% if form_success %}form-posted-successfully{% endif %}">
+              <div class="success-text">{{ 't5a0ea5a1' | t }}</div>
+            </div>
+            {%- unless form_success -%}<div class="error-message w-form-fail  {% if form.errors %}form-has-errors{% endif %}">
+              <div class="error-text">{%- render "form-errors", form_errors: form_errors -%}</div>
+            </div>{%- endunless -%}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wave primairy-color"></div>
+  
+
+<script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","contact-form-section");</script>
+        
+{% schema %}
+{
+  "name": "V1 - Contact Form",
+  "tag": "div",
+  "class": "contact-form-section",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "surname",
+      "label": "Surname",
+      "default": "Voornaam*"
+    },
+    {
+      "type": "textarea",
+      "id": "last_name",
+      "label": "Last Name",
+      "default": "Achternaam"
+    },
+    {
+      "type": "textarea",
+      "id": "email",
+      "label": "Email",
+      "default": "Email*"
+    },
+    {
+      "type": "textarea",
+      "id": "telephone_number",
+      "label": "Telephone Number",
+      "default": "Telefoonnummer"
+    },
+    {
+      "type": "textarea",
+      "id": "select_a_topic",
+      "label": "Select a topic",
+      "default": "Choose a topic"
+    },
+    {
+      "type": "textarea",
+      "id": "message",
+      "label": "Message",
+      "default": "Message"
+    }
+  ]
+}
+{% endschema %}

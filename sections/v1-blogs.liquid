@@ -1,0 +1,121 @@
+
+    <div class="page-padding">
+      <div class="container-v1">
+        <div class="bestselling-section-content">
+          <div class="bestseller-top-content">
+            <div class="bestseller-heading">
+              <div class="bestsellers-title-holder">
+                <h1 class="bestsellers-h1 blogs">{{ section.settings.title }}</h1>
+                <div class="bestseller-cta mobile">{{ 't3b7a9ef' | t }}</div>
+              </div>
+              <div class="blog-paragraph">{{ section.settings.paragraph | newline_to_br }}</div>
+            </div>
+            {%- if section.settings.knop_laten_zien -%}<div class="bestseller-cta desktop" href="{{ section.settings.button_link }}">
+              <div>{{ section.settings.button_text }}</div>
+            </div>{%- endif -%}
+          </div>
+          <div id="blogs-swiper" class="swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
+            <div class="bestsellers-swiper swiper-wrapper">
+              {%- for block in section.blocks -%}{%- if block.type == "blog" -%}<div class="swiper-slide" block.shopify_attributes>
+                <div class="blog-swipe-content">
+                  <div class="blog-img-wrapper">{%- if block.settings.image == nil -%}<img src="{{ 'frame-2922_2.png' | asset_url }}" loading="lazy" sizes="(max-width: 479px) 92vw, (max-width: 767px) 93vw, 599.2265625px" srcset="{{ 'frame-2922_2-p-500.png' | asset_url }} 500w, {{ 'frame-2922_2-p-800.png' | asset_url }} 800w, {{ 'frame-2922_2.png' | asset_url }} 868w" alt="" class="absolute-img">{%- else -%}<img src="{{ block.settings.image.src | img_url: 'master' }}" loading="lazy" alt="{{ block.settings.image.alt | escape }}" class="absolute-img" srcset="{{ block.settings.image | img_url: '1920x' }} 1920w,{{ block.settings.image | img_url: '1600x' }} 1600w,{{ block.settings.image | img_url: '1366x' }} 1366w,{{ block.settings.image | img_url: '1024x' }} 1024w,{{ block.settings.image | img_url: '768x' }} 768w,{{ block.settings.image | img_url: '640x' }} 640w">{%- endif -%}</div>
+                  <div class="blog-card-title">
+                    <div class="blog-title">{{ block.settings.title | newline_to_br }}</div>
+                    <div class="blog-p">{{ block.settings.paragraph | newline_to_br }}</div>
+                  </div>
+                  <div class="product-card-btn" href="{{ block.settings.link }}">
+                    <div>{{ block.settings.button_text | newline_to_br }}</div>
+                  </div>
+                </div>
+              </div>{%- endif -%}{%- endfor -%}
+            </div>
+            <div class="swiper-drag-wrapper swiper-dragger-blogs">
+              <div class="swiper-drag drag-blogs"></div>
+            </div>
+            <div class="slider-arrow-container blog">
+              <div id="blogs-prev-arrow" class="slider-arrow"><img src="{{ 'ic20-arrow-right_1.svg' | asset_url }}" loading="lazy" alt="" class="arrow-swipe"></div>
+              <div id="blogs-next-arrow" class="slider-arrow"><img src="{{ 'ic20-arrow-right.svg' | asset_url }}" loading="lazy" alt="" class="arrow-swipe"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wave primairy-color"></div>
+  
+
+<script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","blog-section");</script>
+        
+{% schema %}
+{
+  "name": "V1 - Blogs",
+  "tag": "div",
+  "class": "blog-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Blogs"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "BEKIJK MEER"
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph",
+      "label": "Paragraph",
+      "default": "Wil je ontdekken welke supplementen perfect bij jou passen? We hebben samen met onze diëtiste een quiz ontwikkeld die"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "knop_laten_zien",
+      "label": "Knop laten zien?",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Blog",
+      "type": "blog",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title",
+          "default": "Plan title heading will go here"
+        },
+        {
+          "type": "textarea",
+          "id": "paragraph",
+          "label": "Paragraph",
+          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros."
+        },
+        {
+          "type": "textarea",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "BLOG BEKIJKEN"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
