@@ -37,8 +37,12 @@
 
 <script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","how-it-works-section");</script>
         
-{% schema %}
-{
+{% schema %}{
+  "presets": [
+    {
+      "name": "V1 - Ingredients"
+    }
+  ],
   "name": "V1 - Ingredients",
   "tag": "div",
   "class": "how-it-works-section",
@@ -81,5 +85,4 @@
       ]
     }
   ]
-}
-{% endschema %}
+}{% endschema %}

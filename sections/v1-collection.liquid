@@ -55,8 +55,12 @@
 
 <script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","collection-section");</script>
         
-{% schema %}
-{
+{% schema %}{
+  "presets": [
+    {
+      "name": "V1 - Collection"
+    }
+  ],
   "name": "V1 - Collection",
   "tag": "div",
   "class": "collection-section",
@@ -138,5 +142,4 @@
       ]
     }
   ]
-}
-{% endschema %}
+}{% endschema %}

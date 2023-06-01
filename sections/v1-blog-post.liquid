@@ -68,8 +68,12 @@
 
 <script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","blog-content-section");</script>
         
-{% schema %}
-{
+{% schema %}{
+  "presets": [
+    {
+      "name": "V1 - Blog Post"
+    }
+  ],
   "name": "V1 - Blog Post",
   "tag": "div",
   "class": "blog-content-section",
@@ -93,5 +97,4 @@
       "type": "bestseller"
     }
   ]
-}
-{% endschema %}
+}{% endschema %}

@@ -45,8 +45,12 @@
 
 <script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","blog-section programs");</script>
         
-{% schema %}
-{
+{% schema %}{
+  "presets": [
+    {
+      "name": "V1 - Blogs Secondairy"
+    }
+  ],
   "name": "V1 - Blogs Secondairy",
   "tag": "div",
   "class": "blog-section programs",
@@ -117,5 +121,4 @@
       ]
     }
   ]
-}
-{% endschema %}
+}{% endschema %}

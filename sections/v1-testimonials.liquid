@@ -38,8 +38,12 @@
 
 <script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","testimonial-section");</script>
         
-{% schema %}
-{
+{% schema %}{
+  "presets": [
+    {
+      "name": "V1 - Testimonials"
+    }
+  ],
   "name": "V1 - Testimonials",
   "tag": "div",
   "class": "testimonial-section",
@@ -100,5 +104,4 @@
       ]
     }
   ]
-}
-{% endschema %}
+}{% endschema %}

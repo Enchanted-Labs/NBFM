@@ -30,8 +30,12 @@
 
 <script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","nav-bar");</script>
         
-{% schema %}
-{
+{% schema %}{
+  "presets": [
+    {
+      "name": "Navbar"
+    }
+  ],
   "name": "Navbar",
   "tag": "div",
   "class": "nav-bar",
@@ -42,5 +46,4 @@
       "label": "Logo link"
     }
   ]
-}
-{% endschema %}
+}{% endschema %}

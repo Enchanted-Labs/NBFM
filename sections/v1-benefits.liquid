@@ -43,8 +43,12 @@
 
 <script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","benefits-section");</script>
         
-{% schema %}
-{
+{% schema %}{
+  "presets": [
+    {
+      "name": "V1 - Benefits"
+    }
+  ],
   "name": "V1 - Benefits",
   "tag": "div",
   "class": "benefits-section",
@@ -98,5 +102,4 @@
       ]
     }
   ]
-}
-{% endschema %}
+}{% endschema %}

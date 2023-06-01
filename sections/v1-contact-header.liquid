@@ -14,8 +14,12 @@
 
 <script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","contact-header-section");</script>
         
-{% schema %}
-{
+{% schema %}{
+  "presets": [
+    {
+      "name": "V1 - Contact Header"
+    }
+  ],
   "name": "V1 - Contact Header",
   "tag": "div",
   "class": "contact-header-section",
@@ -39,5 +43,4 @@
       "default": "Heb jij een vraag over jouw bestelling? Of wil je ons dolgraag vertellen hoe we jouw gezonde routine net wat leuker maken!? Laat het ons weten. Wij staan dagelijks voor jou paraat!Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     }
   ]
-}
-{% endschema %}
+}{% endschema %}

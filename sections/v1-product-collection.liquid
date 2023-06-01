@@ -346,8 +346,12 @@
 
 <script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","product-collection-section");</script>
         
-{% schema %}
-{
+{% schema %}{
+  "presets": [
+    {
+      "name": "V1 - Product Collection"
+    }
+  ],
   "name": "V1 - Product Collection",
   "tag": "div",
   "class": "product-collection-section",
@@ -358,5 +362,4 @@
       "type": "bestseller"
     }
   ]
-}
-{% endschema %}
+}{% endschema %}

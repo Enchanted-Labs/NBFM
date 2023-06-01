@@ -35,8 +35,12 @@
 
 <script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","contact-form-section");</script>
         
-{% schema %}
-{
+{% schema %}{
+  "presets": [
+    {
+      "name": "V1 - Contact Form"
+    }
+  ],
   "name": "V1 - Contact Form",
   "tag": "div",
   "class": "contact-form-section",
@@ -78,5 +82,4 @@
       "default": "Message"
     }
   ]
-}
-{% endschema %}
+}{% endschema %}

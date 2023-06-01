@@ -25,8 +25,12 @@
 
 <script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","product-storytelling-section last");</script>
         
-{% schema %}
-{
+{% schema %}{
+  "presets": [
+    {
+      "name": "V1 - Product Info - Image"
+    }
+  ],
   "name": "V1 - Product Info - Image",
   "tag": "section",
   "class": "product-storytelling-section last",
@@ -80,5 +84,4 @@
       ]
     }
   ]
-}
-{% endschema %}
+}{% endschema %}

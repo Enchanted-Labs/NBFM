@@ -223,8 +223,12 @@
 
 <script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","product-section");</script>
         
-{% schema %}
-{
+{% schema %}{
+  "presets": [
+    {
+      "name": "V1 - Footer Product Secti"
+    }
+  ],
   "name": "V1 - Footer Product Secti",
   "tag": "div",
   "class": "product-section",
@@ -266,5 +270,4 @@
       ]
     }
   ]
-}
-{% endschema %}
+}{% endschema %}

@@ -27,8 +27,12 @@
 
 <script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","hero-section programs");</script>
         
-{% schema %}
-{
+{% schema %}{
+  "presets": [
+    {
+      "name": "V1 - Programs Hero"
+    }
+  ],
   "name": "V1 - Programs Hero",
   "tag": "div",
   "class": "hero-section programs",
@@ -84,5 +88,4 @@
       "label": "Button Link 2"
     }
   ]
-}
-{% endschema %}
+}{% endschema %}

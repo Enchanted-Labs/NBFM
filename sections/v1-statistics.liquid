@@ -28,8 +28,12 @@
 
 <script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","statistics-section");</script>
         
-{% schema %}
-{
+{% schema %}{
+  "presets": [
+    {
+      "name": "V1 - Statistics"
+    }
+  ],
   "name": "V1 - Statistics",
   "tag": "div",
   "class": "statistics-section",
@@ -89,5 +93,4 @@
       ]
     }
   ]
-}
-{% endschema %}
+}{% endschema %}

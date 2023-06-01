@@ -27,8 +27,12 @@
 
 <script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","hero-section");</script>
         
-{% schema %}
-{
+{% schema %}{
+  "presets": [
+    {
+      "name": "V1 - Hero"
+    }
+  ],
   "name": "V1 - Hero",
   "tag": "div",
   "class": "hero-section",
@@ -84,5 +88,4 @@
       "label": "Link 2 - Button 2"
     }
   ]
-}
-{% endschema %}
+}{% endschema %}

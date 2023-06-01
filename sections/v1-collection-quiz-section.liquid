@@ -26,8 +26,12 @@
 
 <script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","quiz-info-section blog");</script>
         
-{% schema %}
-{
+{% schema %}{
+  "presets": [
+    {
+      "name": "V1 - Collection Quiz Sect"
+    }
+  ],
   "name": "V1 - Collection Quiz Sect",
   "tag": "div",
   "class": "quiz-info-section blog",
@@ -68,5 +72,4 @@
       "default": true
     }
   ]
-}
-{% endschema %}
+}{% endschema %}

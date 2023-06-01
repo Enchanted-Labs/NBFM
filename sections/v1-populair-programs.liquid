@@ -37,8 +37,12 @@
 
 <script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","programma-s-section");</script>
         
-{% schema %}
-{
+{% schema %}{
+  "presets": [
+    {
+      "name": "V1 - Populair Programs"
+    }
+  ],
   "name": "V1 - Populair Programs",
   "tag": "div",
   "class": "programma-s-section",
@@ -81,5 +85,4 @@
       ]
     }
   ]
-}
-{% endschema %}
+}{% endschema %}

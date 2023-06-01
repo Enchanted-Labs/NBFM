@@ -50,8 +50,12 @@
 
 <script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","bestsellers-section");</script>
         
-{% schema %}
-{
+{% schema %}{
+  "presets": [
+    {
+      "name": "V1 - Bestsellers"
+    }
+  ],
   "name": "V1 - Bestsellers",
   "tag": "div",
   "class": "bestsellers-section",
@@ -100,5 +104,4 @@
       ]
     }
   ]
-}
-{% endschema %}
+}{% endschema %}

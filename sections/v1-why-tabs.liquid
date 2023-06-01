@@ -67,8 +67,12 @@
 
 <script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","why-section");</script>
         
-{% schema %}
-{
+{% schema %}{
+  "presets": [
+    {
+      "name": "V1 - Why Tabs"
+    }
+  ],
   "name": "V1 - Why Tabs",
   "tag": "div",
   "class": "why-section",
@@ -98,5 +102,4 @@
       "type": "bestseller"
     }
   ]
-}
-{% endschema %}
+}{% endschema %}

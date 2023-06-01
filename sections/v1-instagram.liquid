@@ -20,8 +20,12 @@
 
 <script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","instagram-section");</script>
         
-{% schema %}
-{
+{% schema %}{
+  "presets": [
+    {
+      "name": "V1 - Instagram"
+    }
+  ],
   "name": "V1 - Instagram",
   "tag": "div",
   "class": "instagram-section",
@@ -59,5 +63,4 @@
       "label": "Link 4"
     }
   ]
-}
-{% endschema %}
+}{% endschema %}

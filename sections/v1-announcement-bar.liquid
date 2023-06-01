@@ -4,8 +4,12 @@
 
 <script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","announcement-bar");</script>
         
-{% schema %}
-{
+{% schema %}{
+  "presets": [
+    {
+      "name": "V1 - Announcement Bar"
+    }
+  ],
   "name": "V1 - Announcement Bar",
   "tag": "div",
   "class": "announcement-bar",
@@ -17,5 +21,4 @@
       "default": "17% KORTING OVER DE HELE SITE - CODE: EIWIT17"
     }
   ]
-}
-{% endschema %}
+}{% endschema %}

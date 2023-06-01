@@ -67,8 +67,12 @@
 
 <script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","footer");</script>
         
-{% schema %}
-{
+{% schema %}{
+  "presets": [
+    {
+      "name": "Footer"
+    }
+  ],
   "name": "Footer",
   "tag": "div",
   "class": "footer",
@@ -152,5 +156,4 @@
       ]
     }
   ]
-}
-{% endschema %}
+}{% endschema %}
