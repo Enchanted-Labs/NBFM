@@ -1,365 +1,156 @@
-
-    <div class="page-padding">
-      <div class="container-v2">
-        <div class="product-collection-wrapper-grid">
-          <div class="collection-filters">
-            <div class="collection-filter-wrapper">
-              <div class="collection-filter-title">{{ 'tn2b38fee9' | t }}</div>
-              <div class="filters-container">
-                <div class="collection-filter">{{ 'tn1a66f02a' | t }}</div>
-                <div class="collection-filter">{{ 't77abbc2' | t }}</div>
-                <div class="collection-filter">{{ 'tn94f07c3' | t }}</div>
-                <div class="collection-filter">{{ 'tn1a66f02a' | t }}</div>
-                <div class="collection-filter">{{ 't77abbc2' | t }}</div>
-              </div>
-            </div>
-            <div class="collection-filter-wrapper">
-              <div class="collection-filter-title">{{ 't49cc210' | t }}</div>
-              <div class="prijs-filter-wrapper">
-                <div class="prijs-filter-block">{{ 't3f504' | t }}</div>
-                <div class="prijs-filter-block">{{ 'tedace60' | t }}</div>
-              </div>
-            </div>
-            <div class="collection-filter-wrapper">
-              <div class="collection-filter-title">{{ 'tn7f249685' | t }}</div>
-              <div class="filters-container">
-                <div class="collection-filter">{{ 'tn1f78e490' | t }}</div>
-                <div class="collection-filter">{{ 't2b8137e3' | t }}</div>
-              </div>
-            </div>
+<div class="page-padding">
+  <div class="container-v2">
+    <div class="product-collection-wrapper-grid">
+      <div class="collection-filters">
+        <div class="collection-filter-wrapper">
+          <div class="collection-filter-title">{{ 'tn2b38fee9' | t }}</div>
+          <div class="filters-container">
+            <div class="collection-filter">{{ 'tn1a66f02a' | t }}</div>
+            <div class="collection-filter">{{ 't77abbc2' | t }}</div>
+            <div class="collection-filter">{{ 'tn94f07c3' | t }}</div>
+            <div class="collection-filter">{{ 'tn1a66f02a' | t }}</div>
+            <div class="collection-filter">{{ 't77abbc2' | t }}</div>
           </div>
-          <div class="product-collection-grid-wrapper">
-            <div class="collection-grid-filters">
-              <div class="sorting-button mobile-hidden">
-                <div>{{ 't4d3d9a6' | t }}<strong>{{ 't621' | t }}</strong>{{ 'tn6094e3f7' | t }}</div><img src="{{ 'down-arrow.svg' | asset_url }}" loading="lazy" alt="">
+        </div>
+        <div class="collection-filter-wrapper">
+          <div class="collection-filter-title">{{ 't49cc210' | t }}</div>
+          <div class="prijs-filter-wrapper">
+            <div class="prijs-filter-block">{{ 't3f504' | t }}</div>
+            <div class="prijs-filter-block">{{ 'tedace60' | t }}</div>
+          </div>
+        </div>
+        <div class="collection-filter-wrapper">
+          <div class="collection-filter-title">{{ 'tn7f249685' | t }}</div>
+          <div class="filters-container">
+            <div class="collection-filter">{{ 'tn1f78e490' | t }}</div>
+            <div class="collection-filter">{{ 't2b8137e3' | t }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="product-collection-grid-wrapper">
+        <div class="collection-grid-filters">
+          <div class="sorting-button mobile-hidden">
+            <div>{{ 't4d3d9a6' | t }}<strong>{{ 't621' | t }}</strong>{{ 'tn6094e3f7' | t }}</div><img
+              src="{{ 'down-arrow.svg' | asset_url }}" loading="lazy" alt="">
+          </div>
+          <div class="sorting-button filtering">
+            <div><strong>{{ 't7d6db798' | t }}</strong></div><img src="{{ 'down-arrow.svg' | asset_url }}"
+              loading="lazy" alt="">
+          </div>
+          <div class="sorting-button">
+            <div><strong>{{ 't66effcd4' | t }}</strong></div><img src="{{ 'down-arrow.svg' | asset_url }}"
+              loading="lazy" alt="">
+          </div>
+        </div>
+        <div class="product-collection-grid">
+          {% paginate collection.products by section.settings.number_of_products_per_page %}
+          {% for product in collection.products %}
+          {% assign discount = product.compare_at_price | minus: product.price | money | remove: ',00' %}
+          <div class="product-grid-card">
+            <div class="product-card-content product">
+              <div class="bestseller-image-wrapper"><img src="{{ product.featured_image | img_url: 'master' }}"
+                  loading="lazy"
+                  sizes="(max-width: 479px) 56vw, (max-width: 767px) 45vw, (max-width: 991px) 43vw, 256px"
+                  srcset="{{ product.featured_image | img_url: 'master'}} 500w, {{  product.featured_image | img_url: 'master'}} 780w"
+                  alt="" class="absolute-img"></div>
+              <div class="product-card-title-collection">
+                <div>{{ product.title }}</div>
+                <div class="product-card-price">
+                  <div class="price-discount product-card">{{product.compare_at_price | money}}</div>
+                  <div class="price-p product-card">{{ product.price | money }}</div>
+                  <div class="price-discount-save product-card">BESPAAR {{ discount }}</div>
+                </div>
+                {% if product.metafields.custom.product_card_info != blank %}
+                <div class="product-card-info">{{ product.metafields.custom.product_card_info }}</div>
+                {% endif %}
               </div>
-              <div class="sorting-button filtering">
-                <div><strong>{{ 't7d6db798' | t }}</strong></div><img src="{{ 'down-arrow.svg' | asset_url }}" loading="lazy" alt="">
-              </div>
-              <div class="sorting-button">
-                <div><strong>{{ 't66effcd4' | t }}</strong></div><img src="{{ 'down-arrow.svg' | asset_url }}" loading="lazy" alt="">
-              </div>
+              <a href="{{product.url}}" class="product-card-btn product-card" style="text-decoration: none;">{{
+                section.settings.button-label }}</a>
             </div>
-            <div class="product-collection-grid">
-              {%- for block in section.blocks -%}{%- if block.type == "bestseller" -%}<div class="product-grid-card" block.shopify_attributes>
-                <div class="product-card-content product">
-                  <div class="bestseller-image-wrapper"><img src="{{ 'frame-2922.png' | asset_url }}" loading="lazy" sizes="(max-width: 479px) 56vw, (max-width: 767px) 45vw, (max-width: 991px) 43vw, 256px" srcset="{{ 'frame-2922-p-500.png' | asset_url }} 500w, {{ 'frame-2922.png' | asset_url }} 780w" alt="" class="absolute-img"></div>
-                  <div class="product-card-title-collection">
-                    <div>{{ 't3ab9a1c' | t }}</div>
-                    <div class="product-card-price">
-                      <div class="price-discount product-card">{{ 'tn3c652208' | t }}</div>
-                      <div class="price-p product-card">{{ 'tn3c652208' | t }}</div>
-                      <div class="price-discount-save product-card">{{ 'tn5a439e0b' | t }}</div>
-                    </div>
-                    <div class="product-card-info">{{ 't152013e9' | t }}</div>
-                  </div>
-                  <div class="product-card-btn product-card">{{ 'tn59ff09bd' | t }}</div>
+            <div class="product-card-label">{{ 'tn68e6b976' | t }}</div>
+          </div>
+          {% endfor %}
+          {% endpaginate %}
+        </div>
+        <div class="_w-pagination-wrapper pagination">
+          <div class="pagination-outer">
+            <div class="pagination-container">
+              <div class="fs-pagination">
+                <div class="pagination-links">
+                  <div class="fs-pagination-page fs-pagination-active">{{ 't31' | t }}</div>
+                  <div class="fs-pagination-page">{{ 't32' | t }}</div>
+                  <div class="fs-pagination-page">{{ 't33' | t }}</div>
                 </div>
-                <div class="product-card-label">{{ 'tn68e6b976' | t }}</div>
-              </div>{%- endif -%}{%- endfor -%}
-              {%- for block in section.blocks -%}{%- if block.type == "bestseller" -%}<div class="product-grid-card" block.shopify_attributes>
-                <div class="product-card-content product">
-                  <div class="bestseller-image-wrapper"><img src="{{ 'frame-2922.png' | asset_url }}" loading="lazy" sizes="(max-width: 479px) 56vw, (max-width: 767px) 45vw, (max-width: 991px) 43vw, 256px" srcset="{{ 'frame-2922-p-500.png' | asset_url }} 500w, {{ 'frame-2922.png' | asset_url }} 780w" alt="" class="absolute-img"></div>
-                  <div class="product-card-title-collection">
-                    <div>{{ 't3ab9a1c' | t }}</div>
-                    <div class="product-card-price">
-                      <div class="price-discount product-card">{{ 'tn3c652208' | t }}</div>
-                      <div class="price-p product-card">{{ 'tn3c652208' | t }}</div>
-                      <div class="price-discount-save product-card">{{ 'tn5a439e0b' | t }}</div>
-                    </div>
-                    <div class="product-card-info">{{ 't152013e9' | t }}</div>
-                  </div>
-                  <div class="product-card-btn product-card">{{ 'tn59ff09bd' | t }}</div>
-                </div>
-                <div class="product-card-label">{{ 'tn68e6b976' | t }}</div>
-              </div>{%- endif -%}{%- endfor -%}
-              {%- for block in section.blocks -%}{%- if block.type == "bestseller" -%}<div class="product-grid-card" block.shopify_attributes>
-                <div class="product-card-content product">
-                  <div class="bestseller-image-wrapper"><img src="{{ 'frame-2922.png' | asset_url }}" loading="lazy" sizes="(max-width: 479px) 56vw, (max-width: 767px) 45vw, (max-width: 991px) 43vw, 256px" srcset="{{ 'frame-2922-p-500.png' | asset_url }} 500w, {{ 'frame-2922.png' | asset_url }} 780w" alt="" class="absolute-img"></div>
-                  <div class="product-card-title-collection">
-                    <div>{{ 't3ab9a1c' | t }}</div>
-                    <div class="product-card-price">
-                      <div class="price-discount product-card">{{ 'tn3c652208' | t }}</div>
-                      <div class="price-p product-card">{{ 'tn3c652208' | t }}</div>
-                      <div class="price-discount-save product-card">{{ 'tn5a439e0b' | t }}</div>
-                    </div>
-                    <div class="product-card-info">{{ 't152013e9' | t }}</div>
-                  </div>
-                  <div class="product-card-btn product-card">{{ 'tn59ff09bd' | t }}</div>
-                </div>
-                <div class="product-card-label">{{ 'tn68e6b976' | t }}</div>
-              </div>{%- endif -%}{%- endfor -%}
-              {%- for block in section.blocks -%}{%- if block.type == "bestseller" -%}<div class="product-grid-card" block.shopify_attributes>
-                <div class="product-card-content product">
-                  <div class="bestseller-image-wrapper"><img src="{{ 'frame-2922.png' | asset_url }}" loading="lazy" sizes="(max-width: 479px) 56vw, (max-width: 767px) 45vw, (max-width: 991px) 43vw, 256px" srcset="{{ 'frame-2922-p-500.png' | asset_url }} 500w, {{ 'frame-2922.png' | asset_url }} 780w" alt="" class="absolute-img"></div>
-                  <div class="product-card-title-collection">
-                    <div>{{ 't3ab9a1c' | t }}</div>
-                    <div class="product-card-price">
-                      <div class="price-discount product-card">{{ 'tn3c652208' | t }}</div>
-                      <div class="price-p product-card">{{ 'tn3c652208' | t }}</div>
-                      <div class="price-discount-save product-card">{{ 'tn5a439e0b' | t }}</div>
-                    </div>
-                    <div class="product-card-info">{{ 't152013e9' | t }}</div>
-                  </div>
-                  <div class="product-card-btn product-card">{{ 'tn59ff09bd' | t }}</div>
-                </div>
-                <div class="product-card-label">{{ 'tn68e6b976' | t }}</div>
-              </div>{%- endif -%}{%- endfor -%}
-              {%- for block in section.blocks -%}{%- if block.type == "bestseller" -%}<div class="product-grid-card" block.shopify_attributes>
-                <div class="product-card-content product">
-                  <div class="bestseller-image-wrapper"><img src="{{ 'frame-2922.png' | asset_url }}" loading="lazy" sizes="(max-width: 479px) 56vw, (max-width: 767px) 45vw, (max-width: 991px) 43vw, 256px" srcset="{{ 'frame-2922-p-500.png' | asset_url }} 500w, {{ 'frame-2922.png' | asset_url }} 780w" alt="" class="absolute-img"></div>
-                  <div class="product-card-title-collection">
-                    <div>{{ 't3ab9a1c' | t }}</div>
-                    <div class="product-card-price">
-                      <div class="price-discount product-card">{{ 'tn3c652208' | t }}</div>
-                      <div class="price-p product-card">{{ 'tn3c652208' | t }}</div>
-                      <div class="price-discount-save product-card">{{ 'tn5a439e0b' | t }}</div>
-                    </div>
-                    <div class="product-card-info">{{ 't152013e9' | t }}</div>
-                  </div>
-                  <div class="product-card-btn product-card">{{ 'tn59ff09bd' | t }}</div>
-                </div>
-                <div class="product-card-label">{{ 'tn68e6b976' | t }}</div>
-              </div>{%- endif -%}{%- endfor -%}
-              {%- for block in section.blocks -%}{%- if block.type == "bestseller" -%}<div class="product-grid-card" block.shopify_attributes>
-                <div class="product-card-content product">
-                  <div class="bestseller-image-wrapper"><img src="{{ 'frame-2922.png' | asset_url }}" loading="lazy" sizes="(max-width: 479px) 56vw, (max-width: 767px) 45vw, (max-width: 991px) 43vw, 256px" srcset="{{ 'frame-2922-p-500.png' | asset_url }} 500w, {{ 'frame-2922.png' | asset_url }} 780w" alt="" class="absolute-img"></div>
-                  <div class="product-card-title-collection">
-                    <div>{{ 't3ab9a1c' | t }}</div>
-                    <div class="product-card-price">
-                      <div class="price-discount product-card">{{ 'tn3c652208' | t }}</div>
-                      <div class="price-p product-card">{{ 'tn3c652208' | t }}</div>
-                      <div class="price-discount-save product-card">{{ 'tn5a439e0b' | t }}</div>
-                    </div>
-                    <div class="product-card-info">{{ 't152013e9' | t }}</div>
-                  </div>
-                  <div class="product-card-btn product-card">{{ 'tn59ff09bd' | t }}</div>
-                </div>
-                <div class="product-card-label">{{ 'tn68e6b976' | t }}</div>
-              </div>{%- endif -%}{%- endfor -%}
-              {%- for block in section.blocks -%}{%- if block.type == "bestseller" -%}<div class="product-grid-card" block.shopify_attributes>
-                <div class="product-card-content product">
-                  <div class="bestseller-image-wrapper"><img src="{{ 'frame-2922.png' | asset_url }}" loading="lazy" sizes="(max-width: 479px) 56vw, (max-width: 767px) 45vw, (max-width: 991px) 43vw, 256px" srcset="{{ 'frame-2922-p-500.png' | asset_url }} 500w, {{ 'frame-2922.png' | asset_url }} 780w" alt="" class="absolute-img"></div>
-                  <div class="product-card-title-collection">
-                    <div>{{ 't3ab9a1c' | t }}</div>
-                    <div class="product-card-price">
-                      <div class="price-discount product-card">{{ 'tn3c652208' | t }}</div>
-                      <div class="price-p product-card">{{ 'tn3c652208' | t }}</div>
-                      <div class="price-discount-save product-card">{{ 'tn5a439e0b' | t }}</div>
-                    </div>
-                    <div class="product-card-info">{{ 't152013e9' | t }}</div>
-                  </div>
-                  <div class="product-card-btn product-card">{{ 'tn59ff09bd' | t }}</div>
-                </div>
-                <div class="product-card-label">{{ 'tn68e6b976' | t }}</div>
-              </div>{%- endif -%}{%- endfor -%}
-              {%- for block in section.blocks -%}{%- if block.type == "bestseller" -%}<div class="product-grid-card" block.shopify_attributes>
-                <div class="product-card-content product">
-                  <div class="bestseller-image-wrapper"><img src="{{ 'frame-2922.png' | asset_url }}" loading="lazy" sizes="(max-width: 479px) 56vw, (max-width: 767px) 45vw, (max-width: 991px) 43vw, 256px" srcset="{{ 'frame-2922-p-500.png' | asset_url }} 500w, {{ 'frame-2922.png' | asset_url }} 780w" alt="" class="absolute-img"></div>
-                  <div class="product-card-title-collection">
-                    <div>{{ 't3ab9a1c' | t }}</div>
-                    <div class="product-card-price">
-                      <div class="price-discount product-card">{{ 'tn3c652208' | t }}</div>
-                      <div class="price-p product-card">{{ 'tn3c652208' | t }}</div>
-                      <div class="price-discount-save product-card">{{ 'tn5a439e0b' | t }}</div>
-                    </div>
-                    <div class="product-card-info">{{ 't152013e9' | t }}</div>
-                  </div>
-                  <div class="product-card-btn product-card">{{ 'tn59ff09bd' | t }}</div>
-                </div>
-                <div class="product-card-label">{{ 'tn68e6b976' | t }}</div>
-              </div>{%- endif -%}{%- endfor -%}
-              {%- for block in section.blocks -%}{%- if block.type == "bestseller" -%}<div class="product-grid-card" block.shopify_attributes>
-                <div class="product-card-content product">
-                  <div class="bestseller-image-wrapper"><img src="{{ 'frame-2922.png' | asset_url }}" loading="lazy" sizes="(max-width: 479px) 56vw, (max-width: 767px) 45vw, (max-width: 991px) 43vw, 256px" srcset="{{ 'frame-2922-p-500.png' | asset_url }} 500w, {{ 'frame-2922.png' | asset_url }} 780w" alt="" class="absolute-img"></div>
-                  <div class="product-card-title-collection">
-                    <div>{{ 't3ab9a1c' | t }}</div>
-                    <div class="product-card-price">
-                      <div class="price-discount product-card">{{ 'tn3c652208' | t }}</div>
-                      <div class="price-p product-card">{{ 'tn3c652208' | t }}</div>
-                      <div class="price-discount-save product-card">{{ 'tn5a439e0b' | t }}</div>
-                    </div>
-                    <div class="product-card-info">{{ 't152013e9' | t }}</div>
-                  </div>
-                  <div class="product-card-btn product-card">{{ 'tn59ff09bd' | t }}</div>
-                </div>
-                <div class="product-card-label">{{ 'tn68e6b976' | t }}</div>
-              </div>{%- endif -%}{%- endfor -%}
-              {%- for block in section.blocks -%}{%- if block.type == "bestseller" -%}<div class="product-grid-card" block.shopify_attributes>
-                <div class="product-card-content product">
-                  <div class="bestseller-image-wrapper"><img src="{{ 'frame-2922.png' | asset_url }}" loading="lazy" sizes="(max-width: 479px) 56vw, (max-width: 767px) 45vw, (max-width: 991px) 43vw, 256px" srcset="{{ 'frame-2922-p-500.png' | asset_url }} 500w, {{ 'frame-2922.png' | asset_url }} 780w" alt="" class="absolute-img"></div>
-                  <div class="product-card-title-collection">
-                    <div>{{ 't3ab9a1c' | t }}</div>
-                    <div class="product-card-price">
-                      <div class="price-discount product-card">{{ 'tn3c652208' | t }}</div>
-                      <div class="price-p product-card">{{ 'tn3c652208' | t }}</div>
-                      <div class="price-discount-save product-card">{{ 'tn5a439e0b' | t }}</div>
-                    </div>
-                    <div class="product-card-info">{{ 't152013e9' | t }}</div>
-                  </div>
-                  <div class="product-card-btn product-card">{{ 'tn59ff09bd' | t }}</div>
-                </div>
-                <div class="product-card-label">{{ 'tn68e6b976' | t }}</div>
-              </div>{%- endif -%}{%- endfor -%}
-              {%- for block in section.blocks -%}{%- if block.type == "bestseller" -%}<div class="product-grid-card" block.shopify_attributes>
-                <div class="product-card-content product">
-                  <div class="bestseller-image-wrapper"><img src="{{ 'frame-2922.png' | asset_url }}" loading="lazy" sizes="(max-width: 479px) 56vw, (max-width: 767px) 45vw, (max-width: 991px) 43vw, 256px" srcset="{{ 'frame-2922-p-500.png' | asset_url }} 500w, {{ 'frame-2922.png' | asset_url }} 780w" alt="" class="absolute-img"></div>
-                  <div class="product-card-title-collection">
-                    <div>{{ 't3ab9a1c' | t }}</div>
-                    <div class="product-card-price">
-                      <div class="price-discount product-card">{{ 'tn3c652208' | t }}</div>
-                      <div class="price-p product-card">{{ 'tn3c652208' | t }}</div>
-                      <div class="price-discount-save product-card">{{ 'tn5a439e0b' | t }}</div>
-                    </div>
-                    <div class="product-card-info">{{ 't152013e9' | t }}</div>
-                  </div>
-                  <div class="product-card-btn product-card">{{ 'tn59ff09bd' | t }}</div>
-                </div>
-                <div class="product-card-label">{{ 'tn68e6b976' | t }}</div>
-              </div>{%- endif -%}{%- endfor -%}
-              {%- for block in section.blocks -%}{%- if block.type == "bestseller" -%}<div class="product-grid-card" block.shopify_attributes>
-                <div class="product-card-content product">
-                  <div class="bestseller-image-wrapper"><img src="{{ 'frame-2922.png' | asset_url }}" loading="lazy" sizes="(max-width: 479px) 56vw, (max-width: 767px) 45vw, (max-width: 991px) 43vw, 256px" srcset="{{ 'frame-2922-p-500.png' | asset_url }} 500w, {{ 'frame-2922.png' | asset_url }} 780w" alt="" class="absolute-img"></div>
-                  <div class="product-card-title-collection">
-                    <div>{{ 't3ab9a1c' | t }}</div>
-                    <div class="product-card-price">
-                      <div class="price-discount product-card">{{ 'tn3c652208' | t }}</div>
-                      <div class="price-p product-card">{{ 'tn3c652208' | t }}</div>
-                      <div class="price-discount-save product-card">{{ 'tn5a439e0b' | t }}</div>
-                    </div>
-                    <div class="product-card-info">{{ 't152013e9' | t }}</div>
-                  </div>
-                  <div class="product-card-btn product-card">{{ 'tn59ff09bd' | t }}</div>
-                </div>
-                <div class="product-card-label">{{ 'tn68e6b976' | t }}</div>
-              </div>{%- endif -%}{%- endfor -%}
-              {%- for block in section.blocks -%}{%- if block.type == "bestseller" -%}<div class="product-grid-card" block.shopify_attributes>
-                <div class="product-card-content product">
-                  <div class="bestseller-image-wrapper"><img src="{{ 'frame-2922.png' | asset_url }}" loading="lazy" sizes="(max-width: 479px) 56vw, (max-width: 767px) 45vw, (max-width: 991px) 43vw, 256px" srcset="{{ 'frame-2922-p-500.png' | asset_url }} 500w, {{ 'frame-2922.png' | asset_url }} 780w" alt="" class="absolute-img"></div>
-                  <div class="product-card-title-collection">
-                    <div>{{ 't3ab9a1c' | t }}</div>
-                    <div class="product-card-price">
-                      <div class="price-discount product-card">{{ 'tn3c652208' | t }}</div>
-                      <div class="price-p product-card">{{ 'tn3c652208' | t }}</div>
-                      <div class="price-discount-save product-card">{{ 'tn5a439e0b' | t }}</div>
-                    </div>
-                    <div class="product-card-info">{{ 't152013e9' | t }}</div>
-                  </div>
-                  <div class="product-card-btn product-card">{{ 'tn59ff09bd' | t }}</div>
-                </div>
-                <div class="product-card-label">{{ 'tn68e6b976' | t }}</div>
-              </div>{%- endif -%}{%- endfor -%}
-              {%- for block in section.blocks -%}{%- if block.type == "bestseller" -%}<div class="product-grid-card" block.shopify_attributes>
-                <div class="product-card-content product">
-                  <div class="bestseller-image-wrapper"><img src="{{ 'frame-2922.png' | asset_url }}" loading="lazy" sizes="(max-width: 479px) 56vw, (max-width: 767px) 45vw, (max-width: 991px) 43vw, 256px" srcset="{{ 'frame-2922-p-500.png' | asset_url }} 500w, {{ 'frame-2922.png' | asset_url }} 780w" alt="" class="absolute-img"></div>
-                  <div class="product-card-title-collection">
-                    <div>{{ 't3ab9a1c' | t }}</div>
-                    <div class="product-card-price">
-                      <div class="price-discount product-card">{{ 'tn3c652208' | t }}</div>
-                      <div class="price-p product-card">{{ 'tn3c652208' | t }}</div>
-                      <div class="price-discount-save product-card">{{ 'tn5a439e0b' | t }}</div>
-                    </div>
-                    <div class="product-card-info">{{ 't152013e9' | t }}</div>
-                  </div>
-                  <div class="product-card-btn product-card">{{ 'tn59ff09bd' | t }}</div>
-                </div>
-                <div class="product-card-label">{{ 'tn68e6b976' | t }}</div>
-              </div>{%- endif -%}{%- endfor -%}
-              {%- for block in section.blocks -%}{%- if block.type == "bestseller" -%}<div class="product-grid-card" block.shopify_attributes>
-                <div class="product-card-content product">
-                  <div class="bestseller-image-wrapper"><img src="{{ 'frame-2922.png' | asset_url }}" loading="lazy" sizes="(max-width: 479px) 56vw, (max-width: 767px) 45vw, (max-width: 991px) 43vw, 256px" srcset="{{ 'frame-2922-p-500.png' | asset_url }} 500w, {{ 'frame-2922.png' | asset_url }} 780w" alt="" class="absolute-img"></div>
-                  <div class="product-card-title-collection">
-                    <div>{{ 't3ab9a1c' | t }}</div>
-                    <div class="product-card-price">
-                      <div class="price-discount product-card">{{ 'tn3c652208' | t }}</div>
-                      <div class="price-p product-card">{{ 'tn3c652208' | t }}</div>
-                      <div class="price-discount-save product-card">{{ 'tn5a439e0b' | t }}</div>
-                    </div>
-                    <div class="product-card-info">{{ 't152013e9' | t }}</div>
-                  </div>
-                  <div class="product-card-btn product-card">{{ 'tn59ff09bd' | t }}</div>
-                </div>
-                <div class="product-card-label">{{ 'tn68e6b976' | t }}</div>
-              </div>{%- endif -%}{%- endfor -%}
-            </div>
-            <div class="_w-pagination-wrapper pagination">
-              <div class="pagination-outer">
-                <div class="pagination-container">
-                  <div class="fs-pagination">
-                    <div class="pagination-links">
-                      <div class="fs-pagination-page fs-pagination-active">{{ 't31' | t }}</div>
-                      <div class="fs-pagination-page">{{ 't32' | t }}</div>
-                      <div class="fs-pagination-page">{{ 't33' | t }}</div>
-                    </div>
-                    <div class="fs-pagination-page fs-pagination-next">{{ 'tn41954522' | t }}</div>
-                  </div>
-                </div>
+                <div class="fs-pagination-page fs-pagination-next">{{ 'tn41954522' | t }}</div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="collection-filter-drawer">
-      <div class="drawer-panel-list">
-        <div class="close-filtering-menu"><img src="{{ 'ic24-close.svg' | asset_url }}" loading="lazy" alt="" class="icon-max"></div>
-        <div class="filter-menu-inner">
-          <div class="filter-menu-top">
-            <h1 class="filtering-h1">{{ 'tn2721c1bf' | t }}</h1>
-            <div class="delete-filters-p">{{ 't6a8ed42c' | t }}</div>
-            <div class="filtering-scheiding"></div>
-          </div>
-          <div class="filtering-inner-pannel">
-            <div class="collection-filter-wrapper">
-              <div class="collection-filter-title">{{ 'tn2b38fee9' | t }}</div>
-              <div class="filters-container">
-                <div class="collection-filter">{{ 'tn1a66f02a' | t }}</div>
-                <div class="collection-filter">{{ 't77abbc2' | t }}</div>
-                <div class="collection-filter">{{ 'tn94f07c3' | t }}</div>
-                <div class="collection-filter">{{ 'tn1a66f02a' | t }}</div>
-                <div class="collection-filter">{{ 't77abbc2' | t }}</div>
-              </div>
-            </div>
-            <div class="collection-filter-wrapper">
-              <div class="collection-filter-title">{{ 't49cc210' | t }}</div>
-              <div class="prijs-filter-wrapper">
-                <div class="prijs-filter-block">{{ 't3f504' | t }}</div>
-                <div class="prijs-filter-block">{{ 'tedace60' | t }}</div>
-              </div>
-            </div>
-            <div class="collection-filter-wrapper">
-              <div class="collection-filter-title">{{ 'tn7f249685' | t }}</div>
-              <div class="filters-container">
-                <div class="collection-filter">{{ 'tn1f78e490' | t }}</div>
-                <div class="collection-filter">{{ 't2b8137e3' | t }}</div>
-              </div>
-            </div>
+  </div>
+</div>
+<div class="collection-filter-drawer">
+  <div class="drawer-panel-list">
+    <div class="close-filtering-menu"><img src="{{ 'ic24-close.svg' | asset_url }}" loading="lazy" alt=""
+        class="icon-max"></div>
+    <div class="filter-menu-inner">
+      <div class="filter-menu-top">
+        <h1 class="filtering-h1">{{ 'tn2721c1bf' | t }}</h1>
+        <div class="delete-filters-p">{{ 't6a8ed42c' | t }}</div>
+        <div class="filtering-scheiding"></div>
+      </div>
+      <div class="filtering-inner-pannel">
+        <div class="collection-filter-wrapper">
+          <div class="collection-filter-title">{{ 'tn2b38fee9' | t }}</div>
+          <div class="filters-container">
+            <div class="collection-filter">{{ 'tn1a66f02a' | t }}</div>
+            <div class="collection-filter">{{ 't77abbc2' | t }}</div>
+            <div class="collection-filter">{{ 'tn94f07c3' | t }}</div>
+            <div class="collection-filter">{{ 'tn1a66f02a' | t }}</div>
+            <div class="collection-filter">{{ 't77abbc2' | t }}</div>
           </div>
         </div>
-        <div class="filtering-cta-wrapper">
-          <div class="filtering-button">{{ 't53015710' | t }}</div>
+        <div class="collection-filter-wrapper">
+          <div class="collection-filter-title">{{ 't49cc210' | t }}</div>
+          <div class="prijs-filter-wrapper">
+            <div class="prijs-filter-block">{{ 't3f504' | t }}</div>
+            <div class="prijs-filter-block">{{ 'tedace60' | t }}</div>
+          </div>
+        </div>
+        <div class="collection-filter-wrapper">
+          <div class="collection-filter-title">{{ 'tn7f249685' | t }}</div>
+          <div class="filters-container">
+            <div class="collection-filter">{{ 'tn1f78e490' | t }}</div>
+            <div class="collection-filter">{{ 't2b8137e3' | t }}</div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="wave primairy-color"></div>
-  
+    <div class="filtering-cta-wrapper">
+      <div class="filtering-button">{{ 't53015710' | t }}</div>
+    </div>
+  </div>
+</div>
+<div class="wave primairy-color"></div>
 
-<script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","product-collection-section");</script>
-        
+
+<script>var currentSection = document.currentScript.closest('.shopify-section'); currentSection.setAttribute("class", "product-collection-section");</script>
+
 {% schema %}{
-  "presets": [
-    {
-      "name": "V1 - Product Collection"
-    }
-  ],
-  "name": "V1 - Product Collection",
-  "tag": "div",
-  "class": "product-collection-section",
-  "settings": [],
-  "blocks": [
-    {
-      "name": "Bestseller",
-      "type": "bestseller"
-    }
-  ]
+"presets": [
+{
+"name": "V1 - Product Collection"
+}
+],
+"name": "V1 - Product Collection",
+"tag": "div",
+"class": "product-collection-section",
+"settings": [
+{
+"type": "text",
+"id": "button-label",
+"label": "Button Label"
+}
+]
 }{% endschema %}

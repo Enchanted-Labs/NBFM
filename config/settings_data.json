@@ -16,11 +16,32 @@
       "header": {
         "type": "header",
         "settings": {
-          "logo_link": ""
+          "logo_link": "",
+          "main-menu": "main-menu"
         }
       },
       "footer": {
         "type": "footer",
+        "blocks": {
+          "b92acf8f-63fd-4dd2-836c-80d803886312": {
+            "type": "footer-menu",
+            "settings": {
+              "menu-title": "title 1",
+              "footer-menu": "footer"
+            }
+          },
+          "ad398df0-cd50-4308-95e6-5f88c77c909a": {
+            "type": "footer-menu",
+            "settings": {
+              "menu-title": "title 2",
+              "footer-menu": "main-menu"
+            }
+          }
+        },
+        "block_order": [
+          "b92acf8f-63fd-4dd2-836c-80d803886312",
+          "ad398df0-cd50-4308-95e6-5f88c77c909a"
+        ],
         "settings": {
           "kolom_1_title": "Questions?",
           "kolom_2_title": "Column One",
@@ -32,6 +53,17 @@
           "copyright_notice": "2023 © NBFM B.V. • Development by EcomTraffic ✨.",
           "button_1_link": "",
           "button_1_link_text": ""
+        }
+      },
+      "v1-instagram": {
+        "type": "v1-instagram",
+        "settings": {
+          "title": "Volg onze socials",
+          "paragraph": "Sluit je aan bij 10.000+ mensen die hun aanbeveling al hebben ontvangen.",
+          "link_1": "",
+          "link_2": "",
+          "link_3": "",
+          "link_4": ""
         }
       }
     },

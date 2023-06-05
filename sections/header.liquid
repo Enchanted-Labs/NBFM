@@ -1,49 +1,230 @@
+<div class="menu-desktop-container">
+  <div class="left-nav-column">
+    <a href="#" target="_blank" class="logo-link"><img src="{{ 'logo.png' | asset_url }}" loading="lazy" width="152"
+        height="31" alt="" class="logo"></a>
+    <div class="nav-link-list">
+      {% for link in linklists[section.settings.main-menu].links -%}
+      <a href="{{link.url}}" target="_blank" class="nav-link">
+        <div class="text-2">{{ link.title }}</div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="right-nav-column">
+    <div class="search-module"></div>
+    <a href="#" target="_blank" class="cart-btn"><img src="{{ 'vectors-wrapper_3.svg' | asset_url }}" loading="lazy"
+        width="27.89084815979004" height="24.739999771118164" alt="" class="vectors-wrapper-3"></a>
+  </div>
+</div>
+<div class="mobile-menu-container">
+  <a href="#" id="toggle-menu" class="menu-btn w-inline-block"><img src="{{ 'vector.svg' | asset_url }}" loading="lazy"
+      alt="" class="closed-state-menu-icon"><img src="{{ 'close.svg' | asset_url }}" loading="lazy" alt=""
+      class="opened-state-menu-icon"></a>
+  <a href="{{ section.settings.logo_link }}" id="w-node-_65bf43e6-66fe-641c-c808-654f723a0338-723a0321"
+    class="logo-link w-nav-brand"><img src="{{ 'logo.png' | asset_url }}" loading="lazy" alt="" class="navbar-logo"></a>
+  <div id="w-node-_65bf43e6-66fe-641c-c808-654f723a033a-723a0321" class="navbar-buttons-wrapper">
+    <a href="#" class="cart-icon w-inline-block"><img src="{{ 'icon-cart.svg' | asset_url }}" loading="lazy" alt=""
+        class="image"></a>
+  </div>
+</div>
 
-    <div class="menu-desktop-container">
-      <div class="left-nav-column">
-        <a href="#" target="_blank" class="logo-link"><img src="{{ 'logo.png' | asset_url }}" loading="lazy" width="152" height="31" alt="" class="logo"></a>
-        <div class="nav-link-list">
-          <a href="#" target="_blank" class="nav-link-active">
-            <div class="text">{{ 't21ecdf' | t }}</div>
+
+
+<div class="menu-container">
+  <div class="menu">
+    <div class="content active" id="content1">
+      <div class="menu-centered">
+        <div class="search-module menu-search">{% render 'search-icon' %}</div>
+        <div class="menu-buttons_wrapper">
+          <button class="menu-button-new mini active" data-content="content1"> <img
+              src="{{'menu-icon.svg' | asset_url}}" alt=""> Button 1</button>
+          <button class="menu-button-new mini" data-content="content2"><img src="{{'menu-icon.svg' | asset_url}}"
+              alt="">Button 2</button>
+        </div>
+        <div class="mobile-primary_links">
+          {% for link in linklists[section.settings.main-menu].links -%}
+          <a href="{{link.url}}" target="_blank" class="menu-button-new">
+            <div>{{ link.title }}</div>
           </a>
-          <a href="#" target="_blank" class="nav-link">
-            <div class="text-2">{{ 'tn2191fdbd' | t }}</div>
-          </a>
-          <a href="#" target="_blank" class="nav-link">
-            <div class="text-2">{{ 't269675' | t }}</div>
-          </a>
+          {% endfor %}
         </div>
       </div>
-      <div class="right-nav-column">
-        <div class="search-module"></div>
-        <a href="#" target="_blank" class="cart-btn"><img src="{{ 'vectors-wrapper_3.svg' | asset_url }}" loading="lazy" width="27.89084815979004" height="24.739999771118164" alt="" class="vectors-wrapper-3"></a>
+      <div class="mobile-secondary_links">
+        {% for link in linklists[section.settings.main-menu].links -%}
+        <a href="{{link.url}}" target="_blank" class="mobile-secondary_link">
+          {{ link.title }}
+        </a>
+        {% endfor %}
       </div>
-    </div>
-    <div class="mobile-menu-container">
-      <a href="#" class="menu-btn w-inline-block"><img src="{{ 'vector.svg' | asset_url }}" loading="lazy" alt="" class="closed-state-menu-icon"><img src="{{ 'close.svg' | asset_url }}" loading="lazy" alt="" class="opened-state-menu-icon"></a>
-      <a href="{{ section.settings.logo_link }}" id="w-node-_65bf43e6-66fe-641c-c808-654f723a0338-723a0321" class="logo-link w-nav-brand"><img src="{{ 'logo.png' | asset_url }}" loading="lazy" alt="" class="navbar-logo"></a>
-      <div id="w-node-_65bf43e6-66fe-641c-c808-654f723a033a-723a0321" class="navbar-buttons-wrapper">
-        <a href="#" class="cart-icon w-inline-block"><img src="{{ 'icon-cart.svg' | asset_url }}" loading="lazy" alt="" class="image"></a>
-      </div>
-    </div>
-  
 
-<script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","nav-bar");</script>
-        
+      <div class="swiper mobile-menu_swiper" id="mobile-menu_swiper">
+        <div class="swiper-wrapper menu-swiper_wrapper">
+          <div class="swiper-slide menu-slide">
+            <p>Text</p>
+            <div class="background-image"><img src="{{ 'frame-17815.png' | asset_url }}" loading="lazy"
+                sizes="(max-width: 479px) 84vw, (max-width: 767px) 95vw, (max-width: 991px) 591px, (max-width: 1279px) 48vw, 591px"
+                srcset="{{ 'frame-17815-p-500.png' | asset_url }} 500w, {{ 'frame-17815-p-800.png' | asset_url }} 800w, {{ 'frame-17815-p-1080.png' | asset_url }} 1080w, {{ 'frame-17815.png' | asset_url }} 1190w"
+                alt="" class="statistics-mobile">
+            </div>
+          </div>
+          <div class="swiper-slide menu-slide">
+            <p>Text</p>
+            <div class="background-image"><img src="{{ 'frame-17815.png' | asset_url }}" loading="lazy"
+                sizes="(max-width: 479px) 84vw, (max-width: 767px) 95vw, (max-width: 991px) 591px, (max-width: 1279px) 48vw, 591px"
+                srcset="{{ 'frame-17815-p-500.png' | asset_url }} 500w, {{ 'frame-17815-p-800.png' | asset_url }} 800w, {{ 'frame-17815-p-1080.png' | asset_url }} 1080w, {{ 'frame-17815.png' | asset_url }} 1190w"
+                alt="" class="statistics-mobile">
+            </div>
+          </div>
+          <div class="swiper-slide menu-slide">
+            <p>Text</p>
+            <div class="background-image"><img src="{{ 'frame-17815.png' | asset_url }}" loading="lazy"
+                sizes="(max-width: 479px) 84vw, (max-width: 767px) 95vw, (max-width: 991px) 591px, (max-width: 1279px) 48vw, 591px"
+                srcset="{{ 'frame-17815-p-500.png' | asset_url }} 500w, {{ 'frame-17815-p-800.png' | asset_url }} 800w, {{ 'frame-17815-p-1080.png' | asset_url }} 1080w, {{ 'frame-17815.png' | asset_url }} 1190w"
+                alt="" class="statistics-mobile">
+            </div>
+          </div>
+          <div class="swiper-slide menu-slide">
+            <p>Text</p>
+            <div class="background-image"><img src="{{ 'frame-17815.png' | asset_url }}" loading="lazy"
+                sizes="(max-width: 479px) 84vw, (max-width: 767px) 95vw, (max-width: 991px) 591px, (max-width: 1279px) 48vw, 591px"
+                srcset="{{ 'frame-17815-p-500.png' | asset_url }} 500w, {{ 'frame-17815-p-800.png' | asset_url }} 800w, {{ 'frame-17815-p-1080.png' | asset_url }} 1080w, {{ 'frame-17815.png' | asset_url }} 1190w"
+                alt="" class="statistics-mobile">
+            </div>
+          </div>
+          <div class="swiper-slide menu-slide">
+            <p>Text</p>
+            <div class="background-image"><img src="{{ 'frame-17815.png' | asset_url }}" loading="lazy"
+                sizes="(max-width: 479px) 84vw, (max-width: 767px) 95vw, (max-width: 991px) 591px, (max-width: 1279px) 48vw, 591px"
+                srcset="{{ 'frame-17815-p-500.png' | asset_url }} 500w, {{ 'frame-17815-p-800.png' | asset_url }} 800w, {{ 'frame-17815-p-1080.png' | asset_url }} 1080w, {{ 'frame-17815.png' | asset_url }} 1190w"
+                alt="" class="statistics-mobile">
+            </div>
+          </div>
+          <div class="swiper-slide menu-slide">
+            <p>Text</p>
+            <div class="background-image"><img src="{{ 'frame-17815.png' | asset_url }}" loading="lazy"
+                sizes="(max-width: 479px) 84vw, (max-width: 767px) 95vw, (max-width: 991px) 591px, (max-width: 1279px) 48vw, 591px"
+                srcset="{{ 'frame-17815-p-500.png' | asset_url }} 500w, {{ 'frame-17815-p-800.png' | asset_url }} 800w, {{ 'frame-17815-p-1080.png' | asset_url }} 1080w, {{ 'frame-17815.png' | asset_url }} 1190w"
+                alt="" class="statistics-mobile">
+            </div>
+          </div>
+        </div>
+        <div id="bestsellers-next-arrow" class="slider-arrow menu-sliders right-slider"><img
+            src="{{ 'ic20-arrow-right.svg' | asset_url }}" loading="lazy" alt="" class="arrow-swipe"></div>
+        <div id="bestsellers-prev-arrow" class="slider-arrow menu-sliders left-slider"><img
+            src="{{ 'ic20-arrow-right_1.svg' | asset_url }}" loading="lazy" alt="" class="arrow-swipe"></div>
+      </div>
+    </div>
+
+    <div class="content" id="content2">
+      <div class="menu-centered">
+        <div class="search-module menu-search">{% render 'search-icon' %}</div>
+        <div class="menu-buttons_wrapper">
+          <button class="menu-button-new mini" data-content="content1"> <img src="{{'menu-icon.svg' | asset_url}}"
+              alt=""> Button 1</button>
+          <button class="menu-button-new mini" data-content="content2"><img src="{{'menu-icon.svg' | asset_url}}"
+              alt="">Button 2</button>
+        </div>
+        <div class="mobile-primary_links">
+          {% for link in linklists[section.settings.main-menu].links -%}
+          <a href="{{link.url}}" target="_blank" class="menu-button-new">
+            <div>{{ link.title }}</div>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="mobile-secondary_links">
+        {% for link in linklists[section.settings.main-menu].links -%}
+        <a href="{{link.url}}" target="_blank" class="mobile-secondary_link">
+          {{ link.title }}
+        </a>
+        {% endfor %}
+      </div>
+
+      <div class="swiper mobile-menu_swiper" id="mobile-menu_swiper2">
+        <div class="swiper-wrapper menu-swiper_wrapper">
+          <div class="swiper-slide menu-slide">
+            <p>Text</p>
+            <div class="background-image"><img src="{{ 'frame-17815.png' | asset_url }}" loading="lazy"
+                sizes="(max-width: 479px) 84vw, (max-width: 767px) 95vw, (max-width: 991px) 591px, (max-width: 1279px) 48vw, 591px"
+                srcset="{{ 'frame-17815-p-500.png' | asset_url }} 500w, {{ 'frame-17815-p-800.png' | asset_url }} 800w, {{ 'frame-17815-p-1080.png' | asset_url }} 1080w, {{ 'frame-17815.png' | asset_url }} 1190w"
+                alt="" class="statistics-mobile">
+            </div>
+          </div>
+          <div class="swiper-slide menu-slide">
+            <p>Text</p>
+            <div class="background-image"><img src="{{ 'frame-17815.png' | asset_url }}" loading="lazy"
+                sizes="(max-width: 479px) 84vw, (max-width: 767px) 95vw, (max-width: 991px) 591px, (max-width: 1279px) 48vw, 591px"
+                srcset="{{ 'frame-17815-p-500.png' | asset_url }} 500w, {{ 'frame-17815-p-800.png' | asset_url }} 800w, {{ 'frame-17815-p-1080.png' | asset_url }} 1080w, {{ 'frame-17815.png' | asset_url }} 1190w"
+                alt="" class="statistics-mobile">
+            </div>
+          </div>
+          <div class="swiper-slide menu-slide">
+            <p>Text</p>
+            <div class="background-image"><img src="{{ 'frame-17815.png' | asset_url }}" loading="lazy"
+                sizes="(max-width: 479px) 84vw, (max-width: 767px) 95vw, (max-width: 991px) 591px, (max-width: 1279px) 48vw, 591px"
+                srcset="{{ 'frame-17815-p-500.png' | asset_url }} 500w, {{ 'frame-17815-p-800.png' | asset_url }} 800w, {{ 'frame-17815-p-1080.png' | asset_url }} 1080w, {{ 'frame-17815.png' | asset_url }} 1190w"
+                alt="" class="statistics-mobile">
+            </div>
+          </div>
+          <div class="swiper-slide menu-slide">
+            <p>Text</p>
+            <div class="background-image"><img src="{{ 'frame-17815.png' | asset_url }}" loading="lazy"
+                sizes="(max-width: 479px) 84vw, (max-width: 767px) 95vw, (max-width: 991px) 591px, (max-width: 1279px) 48vw, 591px"
+                srcset="{{ 'frame-17815-p-500.png' | asset_url }} 500w, {{ 'frame-17815-p-800.png' | asset_url }} 800w, {{ 'frame-17815-p-1080.png' | asset_url }} 1080w, {{ 'frame-17815.png' | asset_url }} 1190w"
+                alt="" class="statistics-mobile">
+            </div>
+          </div>
+          <div class="swiper-slide menu-slide">
+            <p>Text</p>
+            <div class="background-image"><img src="{{ 'frame-17815.png' | asset_url }}" loading="lazy"
+                sizes="(max-width: 479px) 84vw, (max-width: 767px) 95vw, (max-width: 991px) 591px, (max-width: 1279px) 48vw, 591px"
+                srcset="{{ 'frame-17815-p-500.png' | asset_url }} 500w, {{ 'frame-17815-p-800.png' | asset_url }} 800w, {{ 'frame-17815-p-1080.png' | asset_url }} 1080w, {{ 'frame-17815.png' | asset_url }} 1190w"
+                alt="" class="statistics-mobile">
+            </div>
+          </div>
+          <div class="swiper-slide menu-slide">
+            <p>Text</p>
+            <div class="background-image"><img src="{{ 'frame-17815.png' | asset_url }}" loading="lazy"
+                sizes="(max-width: 479px) 84vw, (max-width: 767px) 95vw, (max-width: 991px) 591px, (max-width: 1279px) 48vw, 591px"
+                srcset="{{ 'frame-17815-p-500.png' | asset_url }} 500w, {{ 'frame-17815-p-800.png' | asset_url }} 800w, {{ 'frame-17815-p-1080.png' | asset_url }} 1080w, {{ 'frame-17815.png' | asset_url }} 1190w"
+                alt="" class="statistics-mobile">
+            </div>
+          </div>
+        </div>
+        <div id="bestsellers-next-arrow2" class="slider-arrow menu-sliders right-slider"><img
+            src="{{ 'ic20-arrow-right.svg' | asset_url }}" loading="lazy" alt="" class="arrow-swipe"></div>
+        <div id="bestsellers-prev-arrow2" class="slider-arrow menu-sliders left-slider"><img
+            src="{{ 'ic20-arrow-right_1.svg' | asset_url }}" loading="lazy" alt="" class="arrow-swipe"></div>
+        <div class="swiper-scrollbar" id="scrollbar2"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<script>var currentSection = document.currentScript.closest('.shopify-section'); currentSection.setAttribute("class", "nav-bar");</script>
+
 {% schema %}{
-  "presets": [
-    {
-      "name": "Navbar"
-    }
-  ],
-  "name": "Navbar",
-  "tag": "div",
-  "class": "nav-bar",
-  "settings": [
-    {
-      "type": "url",
-      "id": "logo_link",
-      "label": "Logo link"
-    }
-  ]
+"presets": [
+{
+"name": "Navbar"
+}
+],
+"name": "Navbar",
+"tag": "div",
+"class": "nav-bar",
+"settings": [
+{
+"type": "url",
+"id": "logo_link",
+"label": "Logo link"
+},
+{
+"type": "link_list",
+"id": "main-menu",
+"label": "Main Menu"
+}
+]
 }{% endschema %}

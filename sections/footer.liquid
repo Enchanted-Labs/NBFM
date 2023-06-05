@@ -1,159 +1,169 @@
-
-    <div class="page-padding">
-      <div class="container_v2">
-        <div class="w-layout-grid footer-top-content">
-          <div class="w-layout-grid footer-left-wrapper">
-            <div>
-              <div class="text-weight-semibold">{{ section.settings.kolom_1_title }}</div>
-              <div class="footer-p">{{ section.settings.kolom_1_paragraph | newline_to_br }}</div>
-              <a href="{{ section.settings.button_1_link }}" class="secondairy-button w-button">{{ section.settings.button_1_link_text }}</a>
-            </div>
-            <div class="footer2_link-list">
-              <div class="margin-bottom margin-xsmall">
-                <div class="text-weight-semibold">{{ section.settings.kolom_2_title }}</div>
-              </div>
-              <a href="#" class="footer2_link">{{ 't4af04940' | t }}</a>
-              <a href="#" class="footer2_link">{{ 't4af05d26' | t }}</a>
-              <a href="#" class="footer2_link">{{ 't5046f1f8' | t }}</a>
-              <a href="#" class="footer2_link">{{ 't1314cd8c' | t }}</a>
-              <a href="#" class="footer2_link">{{ 't1314b718' | t }}</a>
-            </div>
-            <div class="footer2_link-list">
-              <div class="margin-bottom margin-xsmall">
-                <div class="text-weight-semibold">{{ section.settings.kolom_3_title }}</div>
-              </div>
-              <a href="#" class="footer2_link">{{ 't4af057bc' | t }}</a>
-              <a href="#" class="footer2_link">{{ 't50378c67' | t }}</a>
-              <a href="#" class="footer2_link">{{ 't4f73dce9' | t }}</a>
-              <a href="#" class="footer2_link">{{ 't13185918' | t }}</a>
-              <a href="#" class="footer2_link">{{ 't4af05af7' | t }}</a>
-            </div>
-          </div>
-          <div id="w-node-_524a9174-1934-7b45-9798-b3198f13361e-8f1335f6" class="footer-right-wrapper">
-            <div class="margin-bottom margin-xsmall">
-              <div class="text-weight-semibold">{{ section.settings.kolom_4_title | newline_to_br }}</div>
-            </div>
-            <div class="margin-bottom margin-xsmall is-small-mobile">
-              <div class="footer-p">{{ section.settings.kolom_4_paragraph | newline_to_br }}</div>
-            </div>
-            <div class="footer-form-block w-form">
-              {%- form "contact",  class: "footer-form" -%}<input type="email" class="form-input w-input" maxlength="256" name="contact[email]" data-name="Email 2" placeholder="{{ 'tn1654c429' | t }}" id="email-2" required="">
-                <a href="#" class="secondairy-button w-button">{{ 'tn69de02d6' | t }}</a>
-              {%- assign form_success = form.posted_successfully? -%}{%- assign form_errors = form.errors -%}{%- render "form-general-script", form_success: form_success, form_errors: form_errors -%}{%- endform -%}
-              <div class="success-message w-form-done  {% if form_success %}form-posted-successfully{% endif %}">
-                <div>{{ 't5a0ea5a1' | t }}</div>
-              </div>
-              {%- unless form_success -%}<div class="error-message w-form-fail  {% if form.errors %}form-has-errors{% endif %}">
-                <div>{%- render "form-errors", form_errors: form_errors -%}</div>
-              </div>{%- endunless -%}
-            </div>
-          </div>
+<div class="page-padding">
+  <div class="container_v2">
+    <div class="w-layout-grid footer-top-content">
+      <div class="w-layout-grid footer-left-wrapper">
+        <div>
+          <div class="text-weight-semibold">{{ section.settings.kolom_1_title }}</div>
+          <div class="footer-p">{{ section.settings.kolom_1_paragraph | newline_to_br }}</div>
+          <a href="{{ section.settings.button_1_link }}" class="secondairy-button w-button">{{
+            section.settings.button_1_link_text }}</a>
         </div>
-        <div class="footer-bottom-content">
-          <div class="w-layout-grid footer2_legal-list">
-            <div id="w-node-_524a9174-1934-7b45-9798-b3198f133632-8f1335f6" class="footer2_credit-text">{{ section.settings.copyright_notice | newline_to_br }}</div>
+        {% for block in section.blocks %}
+        {% case block.type %}
+        {% when 'footer-menu' %}
+        <div class="footer2_link-list">
+          <div class="margin-bottom margin-xsmall">
+            <div class="text-weight-semibold">{{ block.settings.menu-title }}</div>
           </div>
-          <div class="w-layout-grid footer2_social-list">
-            {%- for block in section.blocks -%}{%- if block.type == "social_icon" -%}<div block.shopify_attributes>
-              <a href="{{ block.settings.link }}" class="footer2_social-link w-inline-block">
-                <div class="social-icon w-embed">{{ block.settings.social_icon }}</div>
-              </a>
-            </div>{%- endif -%}{%- endfor -%}
+          {% for link in linklists[block.settings.footer-menu].links -%}
+          <a href="{{link.url}}" class="footer2_link">{{link.title}}</a>
+          {% endfor %}
+        </div>
+        {% endcase %}
+        {% endfor %}
+      </div>
+      <div id="w-node-_524a9174-1934-7b45-9798-b3198f13361e-8f1335f6" class="footer-right-wrapper">
+        <div class="margin-bottom margin-xsmall">
+          <div class="text-weight-semibold">{{ section.settings.kolom_4_title | newline_to_br }}</div>
+        </div>
+        <div class="margin-bottom margin-xsmall is-small-mobile">
+          <div class="footer-p">{{ section.settings.kolom_4_paragraph | newline_to_br }}</div>
+        </div>
+        <div class="footer-form-block w-form">
+          {%- form "contact", class: "footer-form" -%}<input type="email" class="form-input w-input" maxlength="256"
+            name="contact[email]" data-name="Email 2" placeholder="{{ 'tn1654c429' | t }}" id="email-2" required="">
+          <a href="#" class="secondairy-button w-button">{{ 'tn69de02d6' | t }}</a>
+          {%- assign form_success = form.posted_successfully? -%}{%- assign form_errors = form.errors -%}{%- render
+          "form-general-script", form_success: form_success, form_errors: form_errors -%}{%- endform -%}
+          <div class="success-message w-form-done  {% if form_success %}form-posted-successfully{% endif %}">
+            <div>{{ 't5a0ea5a1' | t }}</div>
           </div>
+          {%- unless form_success -%}<div
+            class="error-message w-form-fail  {% if form.errors %}form-has-errors{% endif %}">
+            <div>{%- render "form-errors", form_errors: form_errors -%}</div>
+          </div>{%- endunless -%}
         </div>
       </div>
     </div>
-  
+    <div class="footer-bottom-content">
+      <div class="w-layout-grid footer2_legal-list">
+        <div id="w-node-_524a9174-1934-7b45-9798-b3198f133632-8f1335f6" class="footer2_credit-text">{{
+          section.settings.copyright_notice | newline_to_br }}</div>
+      </div>
+      <div class="w-layout-grid footer2_social-list">
+        {%- for block in section.blocks -%}{%- if block.type == "social_icon" -%}<div block.shopify_attributes>
+          <a href="{{ block.settings.link }}" class="footer2_social-link w-inline-block">
+            <div class="social-icon w-embed">{{ block.settings.social_icon }}</div>
+          </a>
+        </div>{%- endif -%}{%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
 
-<script>var currentSection = document.currentScript.closest('.shopify-section');currentSection.setAttribute("class","footer");</script>
-        
+
+<script>var currentSection = document.currentScript.closest('.shopify-section'); currentSection.setAttribute("class", "footer");</script>
+
 {% schema %}{
-  "presets": [
-    {
-      "name": "Footer"
-    }
-  ],
-  "name": "Footer",
-  "tag": "div",
-  "class": "footer",
-  "settings": [
-    {
-      "type": "text",
-      "id": "kolom_1_title",
-      "label": "Kolom 1 Title",
-      "default": "Questions?"
-    },
-    {
-      "type": "text",
-      "id": "kolom_2_title",
-      "label": "Kolom 2 Title",
-      "default": "Column One"
-    },
-    {
-      "type": "text",
-      "id": "kolom_3_title",
-      "label": "Kolom 3 Title",
-      "default": "Column Two"
-    },
-    {
-      "type": "textarea",
-      "id": "kolom_1_paragraph",
-      "label": "Kolom 1 Paragraph",
-      "default": "We’re here to help."
-    },
-    {
-      "type": "textarea",
-      "id": "button_1_text",
-      "label": "Button 1 Text",
-      "default": "DOE DE TEST"
-    },
-    {
-      "type": "textarea",
-      "id": "kolom_4_title",
-      "label": "Kolom 4 Title",
-      "default": "Subscribe"
-    },
-    {
-      "type": "textarea",
-      "id": "kolom_4_paragraph",
-      "label": "Kolom 4 Paragraph",
-      "default": "Join our newsletter to stay up to date on features and releases."
-    },
-    {
-      "type": "textarea",
-      "id": "copyright_notice",
-      "label": "Copyright Notice",
-      "default": "2023 © NBFM B.V. • Development by EcomTraffic ✨."
-    },
-    {
-      "type": "url",
-      "id": "button_1_link",
-      "label": "Button 1 Link"
-    },
-    {
-      "type": "text",
-      "id": "button_1_link_text",
-      "label": "Button 1 Link Text",
-      "default": "{{ section.settings.button_1_text | newline_to_br }}"
-    }
-  ],
-  "blocks": [
-    {
-      "name": "Social Icon",
-      "type": "social_icon",
-      "settings": [
-        {
-          "type": "html",
-          "id": "social_icon",
-          "label": "Social Icon",
-          "default": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <path d=\"M16.5 6H13.5C12.9477 6 12.5 6.44772 12.5 7V10H16.5C16.6137 9.99748 16.7216 10.0504 16.7892 10.1419C16.8568 10.2334 16.8758 10.352 16.84 10.46L16.1 12.66C16.0318 12.8619 15.8431 12.9984 15.63 13H12.5V20.5C12.5 20.7761 12.2761 21 12 21H9.5C9.22386 21 9 20.7761 9 20.5V13H7.5C7.22386 13 7 12.7761 7 12.5V10.5C7 10.2239 7.22386 10 7.5 10H9V7C9 4.79086 10.7909 3 13 3H16.5C16.7761 3 17 3.22386 17 3.5V5.5C17 5.77614 16.7761 6 16.5 6Z\" fill=\"CurrentColor\"></path>\n                  </svg>"
-        },
-        {
-          "type": "url",
-          "id": "link",
-          "label": "Link"
-        }
-      ]
-    }
-  ]
+"presets": [
+{
+"name": "Footer"
+}
+],
+"name": "Footer",
+"tag": "div",
+"class": "footer",
+"settings": [
+{
+"type": "text",
+"id": "kolom_1_title",
+"label": "Kolom 1 Title",
+"default": "Questions?"
+},
+{
+"type": "text",
+"id": "kolom_2_title",
+"label": "Kolom 2 Title",
+"default": "Column One"
+},
+{
+"type": "text",
+"id": "kolom_3_title",
+"label": "Kolom 3 Title",
+"default": "Column Two"
+},
+{
+"type": "textarea",
+"id": "kolom_1_paragraph",
+"label": "Kolom 1 Paragraph",
+"default": "We’re here to help."
+},
+{
+"type": "textarea",
+"id": "button_1_text",
+"label": "Button 1 Text",
+"default": "DOE DE TEST"
+},
+{
+"type": "textarea",
+"id": "kolom_4_title",
+"label": "Kolom 4 Title",
+"default": "Subscribe"
+},
+{
+"type": "textarea",
+"id": "kolom_4_paragraph",
+"label": "Kolom 4 Paragraph",
+"default": "Join our newsletter to stay up to date on features and releases."
+},
+{
+"type": "textarea",
+"id": "copyright_notice",
+"label": "Copyright Notice",
+"default": "2023 © NBFM B.V. • Development by EcomTraffic ✨."
+},
+{
+"type": "url",
+"id": "button_1_link",
+"label": "Button 1 Link"
+},
+{
+"type": "text",
+"id": "button_1_link_text",
+"label": "Button 1 Link Text",
+"default": "{{ section.settings.button_1_text | newline_to_br }}"
+}
+],
+"blocks": [
+{
+"name": "Social Icon",
+"type": "social_icon",
+"settings": [
+{
+"type": "html",
+"id": "social_icon",
+"label": "Social Icon"
+},
+{
+"type": "url",
+"id": "link",
+"label": "Link"
+}
+]
+}, {
+"name": "Footer Menu",
+"type": "footer-menu",
+"settings": [
+{
+"type": "text",
+"id": "menu-title",
+"label": "Menu Title"
+}, {
+"type": "link_list",
+"id": "footer-menu",
+"label": "Footer Menu"
+}
+]
+}
+]
 }{% endschema %}

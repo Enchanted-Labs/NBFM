@@ -3,6 +3,9 @@
     crossorigin="anonymous"></script>
 <script src="{{ 'webflow.js' | asset_url }}" type="text/javascript"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 <!--  SWIPERS NBFM // Alle Swipers moeten nog gebouwd worden  -->
 <script>
     var mySwiper = new Swiper('#bestselling-swiper', {
@@ -248,4 +251,66 @@
             },
         }
     })
+</script>
+
+<script>
+    var swiper = new Swiper("#mobile-menu_swiper", {
+        loop: true,
+        slidesPerView: 2,
+        spaceBetween: 12,
+        navigation: {
+            nextEl: "#bestsellers-next-arrow",
+            prevEl: "#bestsellers-prev-arrow",
+        }
+    });
+</script>
+
+<script>
+    var swiper = new Swiper("#mobile-menu_swiper2", {
+        loop: true,
+        slidesPerView: 2,
+        spaceBetween: 12,
+        scrollbar: {
+            el: "#scrollbar2",
+            draggable: true,
+            snapOnRelease: true,
+            observeParents: true,
+        },
+        navigation: {
+            nextEl: "#bestsellers-next-arrow2",
+            prevEl: "#bestsellers-prev-arrow2",
+        }
+    });
+</script>
+
+
+<script>
+    const toggleButton = document.getElementById('toggle-menu');
+    const menu = document.querySelector('.menu');
+    const buttons = document.querySelectorAll('.menu-button-new');
+    const contents = document.querySelectorAll('.content');
+
+    toggleButton.addEventListener('click', () => {
+        menu.classList.toggle('open');
+    });
+
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const contentId = button.getAttribute('data-content');
+
+            buttons.forEach((btn) => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-content') === contentId) {
+                    btn.classList.add('active');
+                }
+            });
+
+            contents.forEach((content) => {
+                content.classList.remove('active');
+                if (content.id === contentId) {
+                    content.classList.add('active');
+                }
+            });
+        });
+    });
 </script>
