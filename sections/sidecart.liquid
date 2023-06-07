@@ -1,0 +1,458 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+
+
+
+{% schema %}
+{
+"name": "Sidecart",
+"settings": [
+{
+"type": "text",
+"id": "title",
+"placeholder": "Je Winkelwagen",
+"default": "Je Winkelwagen",
+"label": "Winkelwagen titel"
+},
+{
+"type": "text",
+"id": "reward-gotten",
+"placeholder": "Rewards",
+"default": "Rewards",
+"label": "Reward Gotten"
+},{
+"type": "liquid",
+"id": "reward-not",
+"label": "Reward Not Achieved"
+},
+{
+"type": "textarea",
+"id": "shipping_text",
+"placeholder": "Verzending",
+"default": "Verzending",
+"label": "Verzending titel"
+},
+{
+"type": "number",
+"id": "freeshipping_threshold",
+"default": 4000,
+"label": "Free shipping threshold"
+},
+{
+"type": "number",
+"id": "freegift_threshold",
+"default": 6000,
+"label": "Free gift threshold"
+},
+{
+"type": "product",
+"id": "gift_product",
+"label": "Gift product"
+},
+{
+"type": "number",
+"id": "shipping",
+"default": 499,
+"label": "Shipping price"
+},
+{
+"type": "text",
+"id": "free_from1",
+"placeholder": "(Gratis vanaf",
+"default": "(Gratis vanaf",
+"label": "Free From 1"
+},
+{
+"type": "text",
+"id": "free_from2",
+"placeholder": ")",
+"default": ")",
+"label": "Free From 2"
+},
+{
+"type": "textarea",
+"id": "maak_af",
+"default": "Eenmalige Deal!",
+"label": "Upsell Titel"
+},
+{
+"type": "textarea",
+"id": "total",
+"placeholder": "Totaal",
+"default": "Totaal",
+"label": "Totaal Text"
+},
+{
+"type": "textarea",
+"id": "checkout_btn",
+"placeholder": "Veilig Afrekenen",
+"default": "Veilig Afrekenen",
+"label": "ATC Button text"
+},
+{
+"id": "payments",
+"label": "Payment Icons",
+"type": "textarea",
+"default": "klarna,visa,master,american_express,maestro,shopify_pay,apple_pay,google_pay"
+},
+{
+"id": "swiper-products",
+"type": "product_list",
+"label": "Swiper Products"
+}, {
+  "type": "liquid",
+  "id": "upsell-description",
+  "label": "Upsell Description"
+}, {
+"type": "liquid",
+"id": "product-description",
+"label": "Product Description"
+}, {
+  "type": "checkbox",
+  "id": "reward-checkbox",
+  "label": "Show Rewards",
+  "default": true
+},{
+"type": "textarea",
+"id": "upsell-title",
+"default": "Finish my Order",
+"label": "Upsell Title"
+},{
+"type": "textarea",
+"id": "upsell-button_label",
+"default": "Add to Cart",
+"label": "Upsell Button Label"
+}
+]
+}
+{% endschema %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+    <div class="sidecart-overlay">
+
+    <div class="slidecart-blur animation-end" data-ajax-cart-toggle-class-button="js-my-cart-open | remove"></div>
+    <div id="sidecart" class="sidebar-container" >
+      {% assign freeShippingPrice = section.settings.freeshipping_threshold | plus: 0 %}
+      {% assign cartPriceCents = cart.total_price | plus: 0 %}
+      {% assign width = cartPriceCents | times: 100 | divided_by: freeShippingPrice %}
+      <form action="{{ routes.cart_url }}" method="post" class="shopping-bar-sidewrapper" data-ajax-cart-section>
+      <div class="slidecart">
+        <div class="slidecart-body">
+          <div class="slidecart-header">
+            <h1 class="cart-heading">{{section.settings.title}} <span class="text-span">(<span data-ajax-cart-bind-state="cart.item_count">{{ cart.item_count }}</span> Items)</span></h1>
+            <div data-ajax-cart-toggle-class-button="js-my-cart-open | remove" class="slidecart-close animation-end"><img
+                src="{{'ic24-close.svg' | asset_url}}"
+                loading="lazy" alt="" class="image-8"></div>
+          </div>
+          {% if section.settings.reward-checkbox %}
+          <div class="slidecart-rewards">
+<p class="rewards-message">{% if freeShippingPrice <= cartPriceCents %}{{section.settings.reward-gotten}}{% else %}{{section.settings.reward-not}}{% endif %}</p>
+            <div class="slidecart-progress">
+              <div class="slidecart-progress-active" style="width:{{width}}%; max-width: 100%;"></div>
+            </div>
+          </div>
+{% endif %}
+          <div class="slidecart-items">
+            {% for item in cart.items %}
+            <div class="slidecart-item">
+              <div class="item-slidecart-wrapper">
+                <div class="slidecart-item-details">
+                  <div class="cart-item-image-wrapper"><img
+                      src="{{item.image | img_url: 'master'}}"
+                      loading="eager" sizes="102px"
+                      srcset="{{item.image | img_url: 'master'}} 500w, {{item.image | img_url: 'master'}} 800w, {{item.image | img_url: 'master'}} 1080w, {{item.image | img_url: 'master'}} 1222w"
+                      alt="" class="cart-image"></div>
+                  <div id="w-node-_6bcb09fe-7ccd-b95d-9cea-d64b6a21cd2a-486d4b88" class="item-details-wrapper">
+                    <div class="item-information">
+                      <div class="item-title-slidecart">{{item.title}}</div>
+                    </div>
+                    <div class="quantity-price-wrapper">
+                      <div class="quantity-wrapper-2">
+                        <a class="quantity-link" data-ajax-cart-request-button
+            href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity={{ item.quantity | minus: 1 }}">
+                        <p class="quantity-minus">-</p>
+                        </a>
+                        <input class="quantity-number" data-ajax-cart-quantity-input="{{ forloop.index }}" value="{{ item.quantity }}" name="updates[]" type="number"/>
+                        <a class="quantity-link" data-ajax-cart-request-button
+            href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity={{ item.quantity | plus: 1 }}">
+                        <p class="quantity-plus">+</p>
+                        </a>
+                      </div>
+                      <div class="slidecart-price">{{item.price | money}}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="slidecart-dropdown-wrapper">
+                <div style="height: 0px;" class="slidecart-dropdown-content-wrapper collapse" id="collapseExample-{{ forloop.index }}">
+                  <div class="slidecart-dropdown-content">
+                    <div class="slidecart-dropdown-p">{{item.product.metafields.custom.upsell_description}}</div>
+                    <div class="slidecart-item-benefits-list">
+                      {% for benefit in item.product.metafields.custom.upsell_benefit_list.value %}
+                      <div class="slidecart-benefit">
+                        <div class="benefit-icon-slidecart w-embed"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect y="0.5" width="20" height="20" rx="10" fill="#FDF5F4"/>
+                        <path d="M8.91613 13.5C8.65327 13.5 8.40108 13.3968 8.21517 13.2132L6.29038 11.3122C5.90321 10.9299 5.90321 10.3098 6.29038 9.9275C6.67756 9.54519 7.30526 9.54519 7.69244 9.9275L8.91627 11.1362L12.3076 7.78674C12.6947 7.40442 13.3224 7.40442 13.7096 7.78674C14.0968 8.16905 14.0968 8.78909 13.7096 9.1714L9.61738 13.2131C9.43147 13.3966 9.17928 13.4999 8.91642 13.4999L8.91613 13.5Z" fill="#E1908A"/>
+                        </svg>
+                        </div>
+                        <div class="slidecart-benefit-p">{{benefit}}</div>
+                      </div>
+                      {% endfor %}
+                    </div>
+                  </div>
+                </div>
+                <div id="slidecart-{{ forloop.index }}" data-w-id="6bcb09fe-7ccd-b95d-9cea-d64b6a21cd4e"
+                  class="slidecart-item-dropdown-trigger">
+                  <div id="collapse-button" class="cart-dropdown-text-preview hide-me collapse-button" type="button"
+                  data-toggle="collapse" data-target="#collapseExample-{{ forloop.index }}" aria-expanded="false"
+                  aria-controls="collapseExample">
+                    <div class="dropdown-text-preview">Details</div>
+                    <div class="chevron-dropdown">
+                      <div class="w-embed"><svg width="15" height="8" viewBox="0 0 15 8" fill="none"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M0.808163 0.305919C1.00554 0.110039 1.2732 0 1.55229 0C1.83138 0 2.09904 0.110039 2.29642 0.305919L7.50638 5.47794L12.7163 0.305919C12.9148 0.115591 13.1808 0.0102748 13.4567 0.0126555C13.7326 0.0150361 13.9967 0.124923 14.1918 0.318647C14.3869 0.512371 14.4977 0.774434 14.5 1.04839C14.5024 1.32235 14.3963 1.58628 14.2047 1.78334L8.25051 7.69408C8.05314 7.88996 7.78548 8 7.50638 8C7.22729 8 6.95963 7.88996 6.76226 7.69408L0.808163 1.78334C0.610846 1.58741 0.5 1.32169 0.5 1.04463C0.5 0.767572 0.610846 0.501858 0.808163 0.305919Z"
+                            fill="currentcolor"></path>
+                        </svg></div>
+                    </div>
+                  </div>
+                  <div id="collapse-button-close" class="cart-dropdown-text-active show-me collapse-button" type="button"
+                  data-toggle="collapse" data-target="#collapseExample-{{ forloop.index }}" aria-expanded="false"
+                  aria-controls="collapseExample">
+                    <div class="dropdown-text-preview">Verberg</div>
+                    <div class="chevron-dropdown rotated-svg">
+                      <div class="w-embed"><svg width="15" height="8" viewBox="0 0 15 8" fill="none"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M0.808163 0.305919C1.00554 0.110039 1.2732 0 1.55229 0C1.83138 0 2.09904 0.110039 2.29642 0.305919L7.50638 5.47794L12.7163 0.305919C12.9148 0.115591 13.1808 0.0102748 13.4567 0.0126555C13.7326 0.0150361 13.9967 0.124923 14.1918 0.318647C14.3869 0.512371 14.4977 0.774434 14.5 1.04839C14.5024 1.32235 14.3963 1.58628 14.2047 1.78334L8.25051 7.69408C8.05314 7.88996 7.78548 8 7.50638 8C7.22729 8 6.95963 7.88996 6.76226 7.69408L0.808163 1.78334C0.610846 1.58741 0.5 1.32169 0.5 1.04463C0.5 0.767572 0.610846 0.501858 0.808163 0.305919Z"
+                            fill="currentcolor"></path>
+                        </svg></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          {% for product in section.settings.swiper-products %}
+           <h1 class="heading upsell-heading">{{section.settings.upsell-title}}</h1>
+          <div class="sidecart-upsell_wrappepr">
+            <div class="upsell-block"><img
+                src="{{product.featured_image | img_url: 'master'}}"
+                loading="lazy" sizes="(max-width: 479px) 15vw, 70px"
+                srcset="{{product.featured_image | img_url: 'master'}} 500w, {{product.featured_image | img_url: 'master'}} 800w, {{product.featured_image | img_url: 'master'}} 1080w, {{product.featured_image | img_url: 'master'}} 1222w"
+                alt="" class="upsell-image">
+              <div class="upsell-tap_wrapper">
+                <h1 class="upsell-title sidecart-upsell_title">{{product.title}}</h1>
+                  <div style="display: flex;flex-direction: row; gap: 8px;">
+                      <h1 class="upsell-price">{{product.price | money}}</h1>
+                     <h1 class="upsell-price" style="text-decoration: line-through;color: #9e9e9e;">{{ product.compare_at_price | money }}</div>
+                    </div>
+              </div>
+            </div>
+            <a href="/cart/add?id={{ product.selected_or_first_available_variant.id }}"
+            type="submit"
+            data-ajax-cart-request-button class="upsell-cart_button w-button">{{section.settings.upsell-button_label}} - {{product.price | money}}</a>
+          </div>
+        {% endfor %}
+        </div>
+          <div class="slidecart-footer">
+            <div class="sc-text-rows-wrapper">
+              <div class="sc-footer-text-row">
+                <div class="sc-text-subject">Verzendkosten</div>
+                <div class="sc-text-content">{% if freeShippingPrice <= cartPriceCents %} GRATIS {% else %} {{
+                    section.settings.shipping | money }} {% endif %}</div>
+                </div>
+                <div class="sc-footer-text-row">
+                  <div class="sc-text-subject">Totaal</div>
+                  <div class="sc-text-content">{{ cart.total_price | money_with_currency }}</div>
+                </div>
+              </div>
+              <button type="submit" name="checkout" class="sc-checkout-button w-inline-block">
+                <div>Doorgaan naar afrekenen</div>
+              </button>
+              <div class="sc-payment-icons">
+                {% assign enabled_payment_types = section.settings.payments | remove: ' ' | split: ',' %}
+
+                {%- for type in enabled_payment_types -%}
+                  {{ type | payment_type_svg_tag: class: 'payment-icon' }}
+                {%- endfor -%}
+              </div>
+            </div>
+      </div>
+    </div>
+    </form>
+  </div>
+  </div>
+
+
+  <script>
+
+  </script>
+
+
+
+<style>
+
+@keyframes slideout {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+}
+
+
+#shopify-section-sidecart {
+  position: relative;
+}
+
+.rotated-svg {
+  transform: rotateX(180deg);
+  margin-top: -5px;
+}
+
+body.js-my-cart-open {
+  overflow: hidden !important;
+}
+
+  .hide-me[aria-expanded="true"] {
+    display: none;
+  }
+
+  .show-me[aria-expanded="false"] {
+    display: none;
+  }
+
+  .hide-mee[aria-expanded="true"] {
+    display: none;
+  }
+
+  .show-mee[aria-expanded="false"] {
+    display: none;
+  }
+
+  .pointer {
+    cursor: pointer;
+  }
+
+  .swiper-container {
+    overflow: visible !important;
+  }
+
+  .sidebar-container {
+    display: flex;
+  }
+  .cart-payment-info {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9;
+  }
+
+
+
+.sidecart-overlay {
+transition: all .3s;
+position: fixed;
+left: 0%;
+top: 0%;
+right: 0%;
+bottom: 0%;
+z-index: 10000;
+display: flex;
+-webkit-box-pack: end;
+-webkit-justify-content: flex-end;
+-ms-flex-pack: end;
+justify-content: flex-end;
+}
+
+.slidecart-blur {
+  position: fixed;
+left: 0%;
+top: 0%;
+right: 0%;
+bottom: 0%;
+z-index: 100;
+background-color: #0f0f0fcc;
+}
+
+
+  .sidebar-container {
+    z-index: 9999;
+    transition: all 0.5s;
+  }
+
+  .shopping-bar-sidewrapper {
+    position: relative;
+display: flex;
+overflow: auto;
+width: 100%;
+height: 100%;
+-webkit-box-orient: vertical;
+-webkit-box-direction: normal;
+-webkit-flex-direction: column;
+-ms-flex-direction: column;
+flex-direction: column;
+-webkit-box-align: start;
+-webkit-align-items: flex-start;
+-ms-flex-align: start;
+align-items: flex-start;
+background-color: #fff;
+box-shadow: 0 0 12px #00000029;
+z-index: 10000;
+  }
+
+
+.js-my-cart-open .sidecart-overlay {
+  visibility: visible;
+opacity: 1;
+transition: all .3s;
+}
+
+.js-my-cart-open .sidebar-container {
+  transform: translate(0);
+opacity: 1;
+transition: all .5s;
+}
+
+
+  .cart-product-block {
+    opacity: 1;
+    transition: opacity 0.2s;
+  }
+
+  /* Make the area with controls visually disabled */
+  body.js-ajax-cart-request-in-progress .cart-product-block {
+    opacity: 0.7;
+  }
+
+
+
+  @media screen and (max-width: 479px) {
+.shopping-bar-sidewrapper {
+  max-width: 100vw;
+  min-width: 100vw;
+}
+}
+
+
+  @media screen and (max-width: 767px) {
+.shopping-bar-sidewrapper {
+  max-width: 100vw;
+  min-width: 100vw;
+}
+}
+
+</style>
